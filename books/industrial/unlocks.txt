@@ -73,3 +73,16 @@
 @group advanced_casing
 - ic2:resource#advanced_machine
 - ic2:crafting#advanced_circuit
+
+@group heat
+- te#electric_heat_generator
+- te#solid_heat_generator
+- te#fluid_heat_generator
+- te#rt_heat_generator
+- te#blast_furnace
+- te#fermenter
+
+@group teleport
+- ic2:frequency_transmitter
+- te#teleporter
+- ic2:tfbp#blank

@@ -337,6 +337,10 @@
    "ru": "Печенье",
    "stack": "minecraft:cookie"
   },
+  "minecraft:crafting_table": {
+   "ru": "Верстак",
+   "stack": "minecraft:crafting_table"
+  },
   "minecraft:dark_oak_door": {
    "ru": "Дверь из тёмного дуба",
    "stack": "minecraft:dark_oak_door"
