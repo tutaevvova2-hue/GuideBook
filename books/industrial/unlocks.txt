@@ -149,3 +149,8 @@
 - ic2:nuclear#small_plutonium
 - ic2:nuclear#plutonium
 - ic2:nuclear#depleted_uranium
+
+@group crops
+- ic2:crop_stick
+- ic2:cropnalyzer
+- ic2:crop_res#fertilizer
