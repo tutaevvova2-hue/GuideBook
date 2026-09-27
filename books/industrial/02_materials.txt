@@ -1,6 +1,6 @@
 @category materials
 name: Материалы
-description: Металлы, пластины, электросхемы и корпуса машин.
+description: Металлы, пластины, оболочки, бронза, электросхемы, корпуса машин и детали.
 icon: ic2:crafting#circuit
 sort: 2
 
@@ -10,79 +10,120 @@ icon: ic2:plate#copper
 sort: 0
 unlock: metal
 
-== text
-Почти каждый рецепт начинается с металла в одной из форм:
-- *слиток* — из руды или пыли в печи;
-- *пластина* — слиток под [[start/hand_tools|молотом]] или в [[processing/metal_former|Металлоформовочной машине]];
-- *плотная пластина* — девять пластин в [[processing/compressor|Сжимателе]];
-- *корпус* — половинка пластины, режется молотом или Металлоформовочной машиной.
+== spotlight ic2:ingot#copper
+Инженер работает не столько со слитками, сколько с тем, что из них сделано:
+- *пластины* — основа почти всех рецептов;
+- *оболочки* — тонкие листы для аккумуляторов и деталей;
+- *плотные пластины* — для прочных вещей;
+- *провода* — из пластин.
 
-== text | Сплавы
-*Бронза*: три медные пыли и одна оловянная дают четыре бронзовые пыли, из них в печи — бронзовые слитки. Из бронзы делают инструменты, броню и корпуса ранних машин.
+== text | Слитки
+- **Медь** и *олово* — первые металлы, из руды в печи.
+- *Бронза* — сплав меди и олова, см. [[bronze|Бронза]].
+- *Свинец* и *серебро* — из своих руд и побочных продуктов обогащения.
+- *Сталь* — из железа в доменной печи.
+- *Очищенный уран* — топливо реактора.
 
-*Сталь* выплавляют в доменной печи из железа, её описание — в томе о тяжёлой промышленности.
+== text | Пластины
+Слиток превращается в *пластину*:
+- вручную — [[hand_tools|Кузнечным молотом]] на верстаке;
+- без износа инструмента — [[metal_former|Металлоформовочной машиной]] в режиме проката.
 
-== grid ic2:dust#bronze
-ic2:dust#small_bronze ic2:dust#small_bronze ic2:dust#small_bronze
-ic2:dust#small_bronze ic2:dust#small_bronze ic2:dust#small_bronze
-ic2:dust#small_bronze ic2:dust#small_bronze ic2:dust#small_bronze
+Пластины бывают из железа, меди, олова, бронзы, золота, свинца, стали, а также из лазурита и обсидиана — их прессуют в [[compressor|Сжимателе]] из пыли.
 
-== grid ic2:plate#copper
-ore:ingotCopper ore:craftingToolForgeHammer _
-_ _ _
-_ _ _
+== craft ic2:plate#copper
+
+== text | Оболочки
+Пластина под молотом становится двумя *оболочками*. Металлоформовочная машина делает то же самое.
+- *Оловянная оболочка* — корпус аккумулятора и консервных банок.
+- *Железная оболочка* — силовые агрегаты.
+- *Бронзовая оболочка* — улучшенный аккумулятор.
+- Медная, золотая, свинцовая и стальная — для особых деталей.
+
+== craft ic2:casing#tin
+
+== text | Плотные пластины
+Девять пластин одного металла [[compressor|Сжиматель]] прессует в одну *плотную пластину*. Она идёт в броню, реакторные детали и прочные корпуса.
+
+Дробитель перемалывает плотную пластину обратно в девять кучек пыли, так что ошибка не страшна.
 
 == machine te#compressor
-ore:plateCopper*9 -> ic2:plate#dense_copper
 ore:plateIron*9 -> ic2:plate#dense_iron
-Плотные пластины из девяти обычных.
+ore:plateCopper*9 -> ic2:plate#dense_copper
+ore:plateLead*9 -> ic2:plate#dense_lead
+
+== text | Блоки металлов
+Девять слитков на верстаке складываются в *блок*, а блок обратно разбирается на девять слитков. Блоки удобны для хранения.
+
+Из бронзового, железного и стального блоков Металлоформовочная машина вытягивает стержни для роторов и турбин.
+
+== craft ic2:resource#copper_block
+
+== text | Мелочи
+- Железную оболочку Металлоформовочная машина режет в *монету*. Из восьми монет на верстаке снова выходят два железных слитка.
+- Из железной пластины вытягивается пустой *топливный стержень* для реактора.
+- Из железной оболочки — секция *железного забора*.
+
+@entry bronze
+name: Бронза
+icon: ic2:ingot#bronze
+sort: 1
+unlock: bronze
+
+== spotlight ic2:ingot#bronze
+**Бронза** — первый сплав инженера: из неё делают [[wrench|гаечный ключ]], инструменты, броню, МЭСН и детали кинетических генераторов.
+
+Бронзу не сплавить из слитков. Её смешивают из ~пыли~ или ~измельчённой руды~, поэтому бронза появляется только после [[macerator|Дробителя]].
+
+== craft ic2:dust#bronze 2
+Три части меди и одна часть олова дают четыре бронзовой пыли. Подходит и пыль, и измельчённая, и очищенная руда.
+
+== text | Как получить
+- Раздроби медную и оловянную руду в [[macerator|Дробителе]].
+- Смешай на верстаке три меди и одно олово.
+- Переплавь *Бронзовую пыль* в печи в слитки.
+
+Если остались лишние слитки меди и олова, их тоже можно раздробить в пыль.
+
+== machine minecraft:furnace
+ic2:dust#bronze -> ic2:ingot#bronze
+Пыль плавится в любой печи.
+
+== text | Бронзовые инструменты
+Кирка, топор, лопата, мотыга и меч из бронзы ничем не уступают железным: та же скорость, тот же урон, добывают ту же руду. Зато служат в полтора раза дольше: 350 ударов против 250.
+
+Бронзовая броня защищает ровно как железная. Инструменты и броню чинят на наковальне бронзовыми слитками.
+
+== craft ic2:bronze_pickaxe
+
+== craft ic2:bronze_chestplate
 
 @entry circuits
 name: Электросхемы
 icon: ic2:crafting#circuit
-sort: 1
+sort: 2
 unlock: wiring
 
-== text
-*Электросхема* — сердце любой машины. Её делают из изолированного медного провода, редстоуна и железной пластины.
+== spotlight ic2:crafting#circuit
+**Электросхема** — мозг почти каждой машины. Её собирают из изолированных медных проводов, редстоуна и железной пластины.
 
-*Улучшенная электросхема* добавляет светопыль и лазурит и нужна для машин среднего уровня, брони и сканеров.
+Схем понадобится много: на генератор, дробитель, электропечь и каждую следующую машину.
 
-== grid ic2:crafting#circuit
-ic2:cable#type:copper,insulation:1 ic2:cable#type:copper,insulation:1 ic2:cable#type:copper,insulation:1
-minecraft:redstone ore:plateIron minecraft:redstone
-ic2:cable#type:copper,insulation:1 ic2:cable#type:copper,insulation:1 ic2:cable#type:copper,insulation:1
+== craft ic2:crafting#circuit
 
-== grid ic2:crafting#advanced_circuit
-minecraft:redstone minecraft:glowstone_dust minecraft:redstone
-minecraft:dye:4 ore:circuitBasic minecraft:dye:4
-minecraft:redstone minecraft:glowstone_dust minecraft:redstone
+== craft ic2:crafting#circuit 2
+Второй вариант: те же материалы, другая раскладка.
 
-@entry alloys
-name: Композит и углепластик
-icon: ic2:crafting#alloy
-sort: 2
-unlock: workshop
+== spotlight ic2:crafting#advanced_circuit
+*Улучшенная электросхема* — для продвинутых машин, лазуротроновых кристаллов, МФСУ и мощных инструментов.
 
-== text
-Два материала, без которых не обойтись на среднем этапе:
-- *Композит*: из смеси железной, бронзовой и оловянной пластин в [[processing/compressor|Сжимателе]]. Нужен для корпуса улучшенных машин и брони;
-- *Углепластик*: угольная пыль превращается в углеволокно, углеволокно в углеткань, а углеткань в Сжимателе — в пластину. Из него делают нано-броню и лёгкие роторы.
+К обычной схеме добавляются редстоун, лазурит и светокаменная пыль.
 
-== grid ic2:crafting#carbon_fibre
-ore:dustCoal ore:dustCoal _
-ore:dustCoal ore:dustCoal _
-_ _ _
+== craft ic2:crafting#advanced_circuit
 
-== grid ic2:crafting#carbon_mesh
-ic2:crafting#carbon_fibre ic2:crafting#carbon_fibre _
-_ _ _
-_ _ _
-
-== machine te#compressor
-ic2:crafting#carbon_mesh -> ic2:crafting#carbon_plate
-ic2:ingot#alloy -> ic2:crafting#alloy
-Последние шаги в Сжимателе.
+== text | Примечания
+- Светокаменную пыль даёт светокамень из Нижнего мира: в [[macerator|Дробителе]] блок светокамня распадается на четыре пыли.
+- Храни запас схем: они нужны почти в каждом рецепте машины.
 
 @entry casings
 name: Корпуса машин
@@ -90,47 +131,147 @@ icon: ic2:resource#machine
 sort: 3
 unlock: iron_plate
 
-== text
-*Базовый корпус машины* — основа почти всех машин: из восьми железных пластин.
+== spotlight ic2:resource#machine
+**Базовый корпус машины** — основа почти всех машин. Восемь железных пластин кольцом.
 
-*Улучшенный корпус машины* — из стали, композита и углепластика, для машин среднего и высокого уровня.
+Это же он выпадает, если сломать машину без [[wrench|ключа]].
 
-Если сломать машину без [[start/wrench|ключа]], вернётся только её корпус.
+== craft ic2:resource#machine
 
-== grid ic2:resource#machine
-ore:plateIron ore:plateIron ore:plateIron
-ore:plateIron _ ore:plateIron
-ore:plateIron ore:plateIron ore:plateIron
+== spotlight ic2:resource#advanced_machine
+*Улучшенный корпус машины* нужен продвинутым машинам: индукционной печи, телепорту, терраформеру, машинам материи, МФСУ.
 
-== grid ic2:resource#advanced_machine
-ore:plateSteel ic2:crafting#carbon_plate ore:plateSteel
-ic2:crafting#alloy ic2:resource#machine ic2:crafting#alloy
-ore:plateSteel ic2:crafting#carbon_plate ore:plateSteel
+Для него нужны *стальные пластины*, [[alloys|композит и углепластик]].
+
+== craft ic2:resource#advanced_machine
+
+== text | Примечания
+- Корпус — это блок: его можно поставить в мир, например как прочную стену.
+- Сталь для улучшенного корпуса выплавляется в доменной печи из железа.
 
 @entry parts
 name: Детали
-icon: ic2:crafting#coil
+icon: ic2:crafting#electric_motor
 sort: 4
 unlock: first_power
 
 == text
-Мелкие детали, которые встречаются во многих рецептах:
-- *Катушка* — для трансформаторов, магнетизатора и моторов;
-- *Электромотор* — для буров, насоса и вентиляторов;
-- *Теплопровод* — для теплогенераторов и реактора;
-- *Консервная банка* — упаковка для еды и топлива.
+Из проводов, оболочек и пластин собирают детали для машин, инструментов и брони:
+- *Катушка* — трансформаторы, магнетизатор, электромотор;
+- *Электромотор* — промывка, насос, электроинструменты;
+- *Малый силовой агрегат* и *Силовой агрегат* — сердце электроинструментов;
+- *Теплопровод* — охлаждение в реакторе и тепловых машинах.
 
-== grid ic2:crafting#coil
-ic2:cable#type:copper,insulation:0 ic2:cable#type:copper,insulation:0 ic2:cable#type:copper,insulation:0
-ic2:cable#type:copper,insulation:0 minecraft:iron_ingot ic2:cable#type:copper,insulation:0
-ic2:cable#type:copper,insulation:0 ic2:cable#type:copper,insulation:0 ic2:cable#type:copper,insulation:0
+== craft ic2:crafting#coil
+Восемь медных проводов вокруг железного слитка.
 
-== grid ic2:crafting#electric_motor
-_ ic2:casing#tin _
-ic2:crafting#coil minecraft:iron_ingot ic2:crafting#coil
-_ ic2:casing#tin _
+== craft ic2:crafting#electric_motor
 
-== grid ic2:crafting#heat_conductor
-ore:itemRubber ore:plateCopper ore:itemRubber
-ore:itemRubber ore:plateCopper ore:itemRubber
-ore:itemRubber ore:plateCopper ore:itemRubber
+== craft ic2:crafting#small_power_unit
+Малый силовой агрегат: для электроключа, электрокраника и других малых инструментов.
+
+== craft ic2:crafting#power_unit
+Силовой агрегат: для буров, пилы, мотыги.
+
+== craft ic2:crafting#heat_conductor
+
+@entry alloys
+name: Композит и углепластик
+icon: ic2:crafting#alloy
+sort: 5
+unlock: compressing
+
+== spotlight ic2:crafting#alloy
+**Композит** — прочный лист из трёх металлов. Идёт на улучшенный корпус, композитную броню, укреплённое стекло и камень.
+
+Сначала на верстаке складывают *Композитный слиток*, а потом прессуют его в [[compressor|Сжимателе]].
+
+== craft ic2:ingot#alloy
+Два композитных слитка за раз.
+
+== machine te#compressor
+ic2:ingot#alloy -> ic2:crafting#alloy
+Слиток в Сжимателе становится композитом.
+
+== spotlight ic2:crafting#carbon_plate
+*Углепластик* — лёгкий и прочный лист из угля. Цепочка такая:
+- уголь в [[macerator|Дробителе]] — *Угольная пыль*;
+- четыре пыли — *Углеволокно*;
+- два волокна — *Углеткань*;
+- углеткань в Сжимателе — *Углепластик*.
+
+== craft ic2:crafting#carbon_fibre
+
+== craft ic2:crafting#carbon_mesh
+
+== machine te#compressor
+ic2:crafting#carbon_mesh -> ic2:crafting#carbon_plate
+
+== text | Зачем
+- Улучшенный корпус машины.
+- Нанокостюм и реактивные ранцы.
+- Лопасти углепластикового ротора.
+- Защитный костюм и прочие детали.
+
+@entry coal_chain
+name: Уголь и алмазы
+icon: ic2:crafting#coal_chunk
+sort: 6
+unlock: coal_dust
+
+== spotlight ic2:crafting#coal_ball
+Уголь — не только топливо. Если долго прессовать его, выйдет **алмаз**.
+
+Цепочка:
+- уголь в [[macerator|Дробителе]] — *Угольная пыль*;
+- восемь пыли и кремень — *Угольный шарик*;
+- шарик в Сжимателе — *Сжатый угольный шарик*;
+- восемь сжатых шариков и обсидиан — *Угольная глыба*;
+- глыба в Сжимателе — *Алмаз*.
+
+== craft ic2:crafting#coal_ball
+
+== machine te#compressor
+ic2:crafting#coal_ball -> ic2:crafting#coal_block
+
+== craft ic2:crafting#coal_chunk
+
+== machine te#compressor
+ic2:crafting#coal_chunk -> minecraft:diamond
+Угольная глыба в Сжимателе становится алмазом.
+
+== text | Стоит ли
+На один алмаз уходит 64 угля, обсидиан и восемь кремней. Это дорого, но зато алмаз можно получить, не спускаясь в шахту.
+
+Угольная пыль нужна и сама по себе: для углеволокна, одноразовых батареек и гидратированного угля.
+
+@entry dusts
+name: Пыль
+icon: ic2:dust#copper
+sort: 7
+unlock: workshop
+
+== spotlight ic2:dust#copper
+[[macerator|Дробитель]] перемалывает слитки, пластины и многое другое в **пыль**. Из пыли снова получаются слитки в печи, а ещё из неё смешивают сплавы.
+
+== text | Кучки пыли
+Мелкие остатки обогащения — *небольшие кучки* пыли: медной, оловянной, серебряной, свинцовой, серной, лазуритовой и других.
+
+Девять кучек складываются на верстаке в одну целую пыль. Сжиматель делает то же самое.
+
+== craft ic2:dust#bronze 1
+Так из девяти кучек выходит одна пыль. Для других металлов рецепт тот же.
+
+== text | Полезная пыль
+- *Угольная* — углеволокно и одноразовые батарейки.
+- *Алмазная* — энергетическая пыль.
+- *Лазуритовая* — лазуритовая пластина, лазуротроновый кристалл.
+- *Обсидиановая* — обсидиановая пластина.
+- *Серная* — улучшенный аккумулятор и порох.
+- *Каменная* — побочный продукт промывки, для строительной пены.
+
+== machine te#macerator
+minecraft:coal -> ic2:dust#coal
+minecraft:obsidian -> ic2:dust#obsidian
+minecraft:lapis_block -> ic2:dust#lapis*9
+Примеры: уголь, обсидиан и лазуритовый блок.

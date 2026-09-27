@@ -56,3 +56,12 @@
 - ic2:cable#type:iron,insulation:1
 - ic2:cable#type:iron,insulation:2
 - ic2:cable#type:iron,insulation:3
+
+@group compressing
+- te#compressor
+- ic2:ingot#alloy
+- ic2:plate#bronze
+
+@group coal_dust
+- ic2:dust#coal
+- ic2:crafting#coal_ball
