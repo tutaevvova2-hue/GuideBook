@@ -138,3 +138,14 @@
 - ic2:misc_resource#iridium_ore
 - ic2:misc_resource#iridium_shard
 - ic2:crafting#iridium
+
+@group reactor
+- te#reactor_chamber
+- te#nuclear_reactor
+- ic2:uranium_fuel_rod
+- ic2:nuclear#uranium
+
+@group plutonium
+- ic2:nuclear#small_plutonium
+- ic2:nuclear#plutonium
+- ic2:nuclear#depleted_uranium
