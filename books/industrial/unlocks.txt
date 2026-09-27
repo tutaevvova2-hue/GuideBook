@@ -126,3 +126,15 @@
 - ic2:dynamite
 - te#itnt
 - minecraft:gunpowder
+
+@group radiation
+- ore:oreUranium
+- ic2:crushed#uranium
+- ic2:ingot#uranium
+- ic2:plate#lead
+- ore:ingotLead
+
+@group iridium
+- ic2:misc_resource#iridium_ore
+- ic2:misc_resource#iridium_shard
+- ic2:crafting#iridium

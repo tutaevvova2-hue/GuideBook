@@ -675,7 +675,7 @@ class Book:
     def split_pages(self, t, start, where):
         """Делит текст на части по абзацам и пунктам списка так, чтобы каждая помещалась.
         Первая часть начинается с высоты start, остальные — с верха страницы без заголовка."""
-        blocks = re.split(r"(?=\$\(br2\)|\$\(li\))", t)
+        blocks = re.split(r"(?=\$\(br2\)|\$\(li\d?\))", t)
         blocks = [b for b in blocks if b]
         parts = []
         cur = ""
@@ -683,7 +683,7 @@ class Book:
         for b in blocks:
             cand = cur + b
             body = cand[6:] if cand.startswith("$(br2)") else cand
-            top = y0 + (9 if body.startswith("$(li)") else 0)
+            top = y0 + (9 if body.startswith("$(li") else 0)
             if cur and text_bottom(body, top) > PAGE_BOTTOM:
                 parts.append(cur[6:] if cur.startswith("$(br2)") else cur)
                 cur = b
@@ -693,7 +693,7 @@ class Book:
         if cur:
             parts.append(cur[6:] if cur.startswith("$(br2)") else cur)
         for i, ptxt in enumerate(parts):
-            top = (start if i == 0 else -4) + (9 if ptxt.startswith("$(li)") else 0)
+            top = (start if i == 0 else -4) + (9 if ptxt.startswith("$(li") else 0)
             if text_bottom(ptxt, top) > PAGE_BOTTOM:
                 err(where, "абзац не помещается даже на отдельную страницу — разбей его")
         return parts
@@ -927,32 +927,23 @@ class Book:
             groups = [g for g in groups if g in self.groups]
         if not groups:
             return None
-        items = []
+        text = "Следующие статьи появятся в книге, когда у тебя в инвентаре окажется:"
         for g in groups:
             gd = self.groups[g]
             names = []
             for it, name in gd["resolved"]:
                 if name not in names:
                     names.append(name)
-            opens = sorted(gd["entries"], key=lambda x: (x.cat.props.get("sort", "0"), int(x.props.get("sort", 0))))
-            items.append("$(li)" + " или ".join(f"$(5){n}$()" for n in names) + " откроет: "
-                         + ", ".join(x.props.get("name", x.id) for x in opens) + ".")
-        head = "Следующие статьи появятся в книге, когда у тебя в инвентаре окажется:"
-        pages = []
-        cur = head
-        for it in items:
-            cand = cur + it
-            if text_bottom(cand, 12) > PAGE_BOTTOM and cur != head:
-                pages.append(cur)
-                cur = "Ещё:" + it
-            else:
-                cur = cand
-        pages.append(cur)
+            opens = sorted(gd["entries"], key=lambda x: (int(x.cat.props.get("sort", 0)), int(x.props.get("sort", 0))))
+            text += "$(li)" + " или ".join(f"$(5){n}$()" for n in names) + " — откроется:"
+            text += "".join("$(li2)" + x.props.get("name", x.id) for x in opens)
+        parts = self.split_pages(text, 12, e.where)
         res = []
-        for i, t in enumerate(pages):
-            if text_bottom(t, 12) > PAGE_BOTTOM:
-                err(e.where, "страница «Что дальше» не влезает даже одна")
-            res.append({"type": "text", "title": "Что дальше" if i == 0 else "Что дальше (2)", "text": t})
+        for i, t in enumerate(parts):
+            d = {"type": "text", "text": t}
+            if i == 0:
+                d["title"] = "Что дальше"
+            res.append(d)
         return res
 
     # --- шаблоны
