@@ -1,0 +1,114 @@
+{
+ "components": [
+  {
+   "type": "image",
+   "image": "patchouli:textures/gui/crafting.png",
+   "x": 10,
+   "y": 8,
+   "u": 11,
+   "v": 71,
+   "width": 96,
+   "height": 24,
+   "texture_width": 128,
+   "texture_height": 128,
+   "guard": "#in1"
+  },
+  {
+   "type": "item",
+   "item": "#in1",
+   "x": 14,
+   "y": 12,
+   "guard": "#in1"
+  },
+  {
+   "type": "item",
+   "item": "#m",
+   "x": 50,
+   "y": 12,
+   "guard": "#in1"
+  },
+  {
+   "type": "item",
+   "item": "#out1",
+   "x": 86,
+   "y": 12,
+   "guard": "#in1"
+  },
+  {
+   "type": "image",
+   "image": "patchouli:textures/gui/crafting.png",
+   "x": 10,
+   "y": 38,
+   "u": 11,
+   "v": 71,
+   "width": 96,
+   "height": 24,
+   "texture_width": 128,
+   "texture_height": 128,
+   "guard": "#in2"
+  },
+  {
+   "type": "item",
+   "item": "#in2",
+   "x": 14,
+   "y": 42,
+   "guard": "#in2"
+  },
+  {
+   "type": "item",
+   "item": "#m",
+   "x": 50,
+   "y": 42,
+   "guard": "#in2"
+  },
+  {
+   "type": "item",
+   "item": "#out2",
+   "x": 86,
+   "y": 42,
+   "guard": "#in2"
+  },
+  {
+   "type": "image",
+   "image": "patchouli:textures/gui/crafting.png",
+   "x": 10,
+   "y": 68,
+   "u": 11,
+   "v": 71,
+   "width": 96,
+   "height": 24,
+   "texture_width": 128,
+   "texture_height": 128,
+   "guard": "#in3"
+  },
+  {
+   "type": "item",
+   "item": "#in3",
+   "x": 14,
+   "y": 72,
+   "guard": "#in3"
+  },
+  {
+   "type": "item",
+   "item": "#m",
+   "x": 50,
+   "y": 72,
+   "guard": "#in3"
+  },
+  {
+   "type": "item",
+   "item": "#out3",
+   "x": 86,
+   "y": 72,
+   "guard": "#in3"
+  },
+  {
+   "type": "text",
+   "text": "#text",
+   "x": 0,
+   "y": 100,
+   "max_width": 116,
+   "guard": "#text"
+  }
+ ]
+}

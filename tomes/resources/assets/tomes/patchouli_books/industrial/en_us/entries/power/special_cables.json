@@ -1,0 +1,37 @@
+{
+ "name": "Детектор и разъединитель",
+ "category": "power",
+ "icon": "ic2:cable{type:5b,insulation:0b}",
+ "sortnum": 2,
+ "pages": [
+  {
+   "type": "text",
+   "text": "Два особых провода для автоматики:$(li)$(5)Провод-детектор$() подаёт редстоун-сигнал, пока через него идёт энергия. По нему удобно зажигать лампу «сеть работает»;$(li)$(5)Провод-разъединитель$() перестаёт пропускать энергию, когда на него подан редстоун-сигнал. Им выключают целые участки сети рычагом."
+  },
+  {
+   "type": "tomes:ic2_craft",
+   "out": "ic2:cable{type:5b,insulation:0b}",
+   "a2": "ore:circuitBasic",
+   "a4": "minecraft:redstone",
+   "a5": "ic2:cable{type:3b,insulation:3b}",
+   "a6": "minecraft:redstone",
+   "a8": "minecraft:redstone"
+  },
+  {
+   "type": "tomes:ic2_craft",
+   "out": "ic2:cable{type:6b,insulation:0b}",
+   "a2": "minecraft:redstone",
+   "a4": "ic2:cable{type:3b,insulation:3b}",
+   "a5": "minecraft:lever",
+   "a6": "ic2:cable{type:3b,insulation:3b}",
+   "a8": "minecraft:redstone"
+  },
+  {
+   "type": "text",
+   "title": "Что дальше",
+   "text": "Следующие статьи появятся в книге, когда у тебя в инвентаре окажется:$(li)$(5)сжиматель$() или $(5)металлоформовочная машина$() или $(5)измельчённая медная руда$() или $(5)измельчённая железная руда$() откроет: Рудопромывочная машина, Тепловая центрифуга, Цепочка обогащения.$(li)$(5)МЭСН$() или $(5)МФЭ$() или $(5)катушка$() или $(5)трансформатор НН$() откроет: Трансформаторы."
+  }
+ ],
+ "advancement": "tomes:industrial/workshop",
+ "secret": true
+}

@@ -1,0 +1,44 @@
+{
+ "criteria": {
+  "has_0": {
+   "trigger": "minecraft:inventory_changed",
+   "conditions": {
+    "items": [
+     {
+      "item": "ic2:te",
+      "data": 47
+     }
+    ]
+   }
+  },
+  "has_1": {
+   "trigger": "minecraft:inventory_changed",
+   "conditions": {
+    "items": [
+     {
+      "item": "ic2:te",
+      "data": 45
+     }
+    ]
+   }
+  },
+  "has_2": {
+   "trigger": "minecraft:inventory_changed",
+   "conditions": {
+    "items": [
+     {
+      "item": "ic2:te",
+      "data": 44
+     }
+    ]
+   }
+  }
+ },
+ "requirements": [
+  [
+   "has_0",
+   "has_1",
+   "has_2"
+  ]
+ ]
+}

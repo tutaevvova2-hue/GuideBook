@@ -1,0 +1,56 @@
+{
+ "criteria": {
+  "has_0": {
+   "trigger": "minecraft:inventory_changed",
+   "conditions": {
+    "items": [
+     {
+      "item": "ic2:te",
+      "data": 73
+     }
+    ]
+   }
+  },
+  "has_1": {
+   "trigger": "minecraft:inventory_changed",
+   "conditions": {
+    "items": [
+     {
+      "item": "ic2:te",
+      "data": 74
+     }
+    ]
+   }
+  },
+  "has_2": {
+   "trigger": "minecraft:inventory_changed",
+   "conditions": {
+    "items": [
+     {
+      "item": "ic2:crafting",
+      "data": 5
+     }
+    ]
+   }
+  },
+  "has_3": {
+   "trigger": "minecraft:inventory_changed",
+   "conditions": {
+    "items": [
+     {
+      "item": "ic2:te",
+      "data": 77
+     }
+    ]
+   }
+  }
+ },
+ "requirements": [
+  [
+   "has_0",
+   "has_1",
+   "has_2",
+   "has_3"
+  ]
+ ]
+}

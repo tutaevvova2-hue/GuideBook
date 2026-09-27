@@ -1,0 +1,20 @@
+{
+ "criteria": {
+  "has_0": {
+   "trigger": "minecraft:inventory_changed",
+   "conditions": {
+    "items": [
+     {
+      "type": "forge:ore_dict",
+      "ore": "plateIron"
+     }
+    ]
+   }
+  }
+ },
+ "requirements": [
+  [
+   "has_0"
+  ]
+ ]
+}

@@ -1,0 +1,39 @@
+{
+ "name": "Трансформаторы",
+ "category": "power",
+ "icon": "ic2:te:77",
+ "sortnum": 3,
+ "pages": [
+  {
+   "type": "text",
+   "text": "$(9)Трансформатор$() связывает два соседних уровня напряжения: низкий и средний, средний и высокий и так далее.$(br2)У него одна $(2)широкая сторона$() (с точками) и пять узких. В обычном режиме энергия, пришедшая на широкую сторону, выходит с узких уже пониженной. Так мощный накопитель безопасно питает простые машины."
+  },
+  {
+   "type": "text",
+   "text": "В окне трансформатора можно выбрать режим: понижение, повышение или переключение редстоуном.$(li)$(9)Трансформатор НН$(): уровни 1 и 2;$(li)$(9)Трансформатор СН$(): 2 и 3;$(li)$(9)Трансформатор ВН$(): 3 и 4;$(li)$(9)Трансформатор СВН$(): 4 и 5.",
+   "title": "Режимы"
+  },
+  {
+   "type": "tomes:ic2_craft",
+   "out": "ic2:te:77",
+   "a1": "ore:plankWood",
+   "a2": "ic2:cable{type:4b,insulation:1b}",
+   "a3": "ore:plankWood",
+   "a4": "ore:plankWood",
+   "a5": "ic2:crafting:5",
+   "a6": "ore:plankWood",
+   "a7": "ore:plankWood",
+   "a8": "ic2:cable{type:4b,insulation:1b}",
+   "a9": "ore:plankWood"
+  },
+  {
+   "type": "tomes:ic2_craft",
+   "out": "ic2:te:78",
+   "a1": "ic2:cable{type:0b,insulation:1b}",
+   "a4": "ic2:resource:12",
+   "a7": "ic2:cable{type:0b,insulation:1b}"
+  }
+ ],
+ "advancement": "tomes:industrial/voltage",
+ "secret": true
+}

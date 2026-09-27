@@ -1,0 +1,68 @@
+{
+ "criteria": {
+  "has_0": {
+   "trigger": "minecraft:inventory_changed",
+   "conditions": {
+    "items": [
+     {
+      "item": "ic2:te",
+      "data": 3
+     }
+    ]
+   }
+  },
+  "has_1": {
+   "trigger": "minecraft:inventory_changed",
+   "conditions": {
+    "items": [
+     {
+      "item": "ic2:te",
+      "data": 8
+     }
+    ]
+   }
+  },
+  "has_2": {
+   "trigger": "minecraft:inventory_changed",
+   "conditions": {
+    "items": [
+     {
+      "item": "ic2:te",
+      "data": 10
+     }
+    ]
+   }
+  },
+  "has_3": {
+   "trigger": "minecraft:inventory_changed",
+   "conditions": {
+    "items": [
+     {
+      "item": "ic2:te",
+      "data": 11
+     }
+    ]
+   }
+  },
+  "has_4": {
+   "trigger": "minecraft:inventory_changed",
+   "conditions": {
+    "items": [
+     {
+      "item": "ic2:te",
+      "data": 72
+     }
+    ]
+   }
+  }
+ },
+ "requirements": [
+  [
+   "has_0",
+   "has_1",
+   "has_2",
+   "has_3",
+   "has_4"
+  ]
+ ]
+}

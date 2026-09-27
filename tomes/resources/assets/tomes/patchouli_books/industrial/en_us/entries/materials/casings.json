@@ -1,0 +1,44 @@
+{
+ "name": "Корпуса машин",
+ "category": "materials",
+ "icon": "ic2:resource:12",
+ "sortnum": 3,
+ "pages": [
+  {
+   "type": "text",
+   "text": "$(5)Базовый корпус машины$() — основа почти всех машин: из восьми железных пластин.$(br2)$(5)Улучшенный корпус машины$() — из стали, композита и углепластика, для машин среднего и высокого уровня.$(br2)Если сломать машину без $(l:start/wrench)ключа$(), вернётся только её корпус."
+  },
+  {
+   "type": "tomes:ic2_craft",
+   "out": "ic2:resource:12",
+   "a1": "ore:plateIron",
+   "a2": "ore:plateIron",
+   "a3": "ore:plateIron",
+   "a4": "ore:plateIron",
+   "a6": "ore:plateIron",
+   "a7": "ore:plateIron",
+   "a8": "ore:plateIron",
+   "a9": "ore:plateIron"
+  },
+  {
+   "type": "tomes:ic2_craft",
+   "out": "ic2:resource:13",
+   "a1": "ore:plateSteel",
+   "a2": "ic2:crafting:15",
+   "a3": "ore:plateSteel",
+   "a4": "ic2:crafting:3",
+   "a5": "ic2:resource:12",
+   "a6": "ic2:crafting:3",
+   "a7": "ore:plateSteel",
+   "a8": "ic2:crafting:15",
+   "a9": "ore:plateSteel"
+  },
+  {
+   "type": "text",
+   "title": "Что дальше",
+   "text": "Следующие статьи появятся в книге, когда у тебя в инвентаре окажется:$(li)$(5)базовый корпус машины$() или $(5)аккумулятор$() или $(5)электросхема$() откроет: Генератор, Солнечная панель, Гидрогенератор и ветрогенератор, Накопители энергии, Детали."
+  }
+ ],
+ "advancement": "tomes:industrial/iron_plate",
+ "secret": true
+}

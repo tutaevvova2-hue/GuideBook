@@ -1,0 +1,7 @@
+{
+ "name": "Электричество",
+ "description": "Энергия, напряжение, провода, трансформаторы и накопители.",
+ "icon": "ic2:cable{type:0b,insulation:1b}",
+ "sortnum": 1,
+ "secret": true
+}

@@ -1,0 +1,56 @@
+{
+ "name": "Батареи и кристаллы",
+ "category": "power",
+ "icon": "ic2:re_battery",
+ "sortnum": 5,
+ "pages": [
+  {
+   "type": "text",
+   "text": "Переносные хранилища энергии для инструментов, брони и машин:$(li)$(5)Аккумулятор$(): 10 000 EU, уровень 1;$(li)$(5)Улучшенный аккумулятор$(): 100 000 EU, уровень 2;$(li)$(5)Энергетический кристалл$(): 1 млн EU, уровень 3;$(li)$(5)Лазуротроновый кристалл$(): 10 млн EU, уровень 4.$(br2)Батарею в слоте энергии машины можно использовать вместо провода."
+  },
+  {
+   "type": "tomes:ic2_craft",
+   "out": "ic2:re_battery",
+   "a2": "ic2:cable{type:4b,insulation:1b}",
+   "a4": "ic2:casing:6",
+   "a5": "minecraft:redstone",
+   "a6": "ic2:casing:6",
+   "a7": "ic2:casing:6",
+   "a8": "minecraft:redstone",
+   "a9": "ic2:casing:6"
+  },
+  {
+   "type": "tomes:ic2_craft",
+   "out": "ic2:advanced_re_battery",
+   "a1": "ic2:cable{type:0b,insulation:1b}",
+   "a2": "ic2:casing:0",
+   "a3": "ic2:cable{type:0b,insulation:1b}",
+   "a4": "ic2:casing:0",
+   "a5": "ore:dustSulfur",
+   "a6": "ic2:casing:0",
+   "a7": "ic2:casing:0",
+   "a8": "ore:dustLead",
+   "a9": "ic2:casing:0"
+  },
+  {
+   "type": "tomes:ic2_craft",
+   "out": "ic2:lapotron_crystal",
+   "a1": "ore:dustLapis",
+   "a2": "ore:circuitAdvanced",
+   "a3": "ore:dustLapis",
+   "a4": "ore:dustLapis",
+   "a5": "ic2:energy_crystal",
+   "a6": "ore:dustLapis",
+   "a7": "ore:dustLapis",
+   "a8": "ore:circuitAdvanced",
+   "a9": "ore:dustLapis"
+  },
+  {
+   "type": "text",
+   "title": "Что дальше",
+   "text": "Следующие статьи появятся в книге, когда у тебя в инвентаре окажется:$(li)$(5)базовый корпус машины$() или $(5)аккумулятор$() или $(5)электросхема$() откроет: Генератор, Солнечная панель, Гидрогенератор и ветрогенератор, Накопители энергии, Детали."
+  }
+ ],
+ "advancement": "tomes:industrial/wiring",
+ "secret": true
+}
