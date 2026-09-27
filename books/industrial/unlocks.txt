@@ -86,3 +86,8 @@
 - ic2:frequency_transmitter
 - te#teleporter
 - ic2:tfbp#blank
+
+@group fluids
+- ic2:fluid_cell
+- te#pump
+- te#geo_generator

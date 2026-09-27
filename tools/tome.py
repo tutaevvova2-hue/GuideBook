@@ -660,7 +660,7 @@ class Book:
             d["priority"] = True
         if p.get("read_by_default") == "yes":
             d["read_by_default"] = True
-        if str_width(d["name"]) > 100:
+        if str_width(d["name"]) > 104:  # кнопка статьи 116 px, текст начинается с 12 px
             warn(e.where, f"длинное название статьи ({str_width(d['name'])} px), в списке может не влезть")
         return d
 
