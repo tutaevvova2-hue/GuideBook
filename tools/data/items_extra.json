@@ -1,14 +1,88 @@
 {
  "fluid_cell_names": {
-  "ic2air": "Капсула сжатого воздуха",
+  "ic2air": "Капсула: воздух",
+  "ic2biogas": "Капсула: биогаз",
+  "ic2biomass": "Капсула: жидкая биомасса",
+  "ic2construction_foam": "Капсула: жидкая строительная пена",
+  "ic2coolant": "Капсула: хладагент",
+  "ic2creosote": "Капсула: креозот",
+  "ic2distilled_water": "Капсула: дистиллированная вода",
+  "ic2heavy_water": "Капсула: тяжёлая вода",
+  "ic2hot_coolant": "Капсула: горячий хладагент",
+  "ic2hot_water": "Капсула: тёплая вода",
+  "ic2pahoehoe_lava": "Капсула: базальтовая лава",
+  "ic2steam": "Капсула: пар",
+  "ic2superheated_steam": "Капсула: перегретый пар",
+  "ic2uu_matter": "Капсула: жидкая материя",
+  "ic2weed_ex": "Капсула: пестицид",
   "lava": "Капсула лавы",
   "water": "Капсула воды"
  },
  "fluid_names": {
+  "ic2air": "Воздух",
+  "ic2biogas": "Биогаз",
+  "ic2biomass": "Жидкая биомасса",
+  "ic2construction_foam": "Жидкая строительная пена",
+  "ic2coolant": "Хладагент",
+  "ic2creosote": "Креозот",
+  "ic2distilled_water": "Дистиллированная вода",
+  "ic2heavy_water": "Тяжёлая вода",
+  "ic2hot_coolant": "Горячий хладагент",
+  "ic2hot_water": "Тёплая вода",
+  "ic2pahoehoe_lava": "Базальтовая лава",
+  "ic2steam": "Пар",
+  "ic2superheated_steam": "Перегретый пар",
+  "ic2uu_matter": "Жидкая материя",
+  "ic2weed_ex": "Пестицид",
   "lava": "Лава",
   "water": "Вода"
  },
  "fluids": {
+  "ic2air": [
+   "ic2:fluid_cell{Fluid:{FluidName:\"ic2air\",Amount:1000}}"
+  ],
+  "ic2biogas": [
+   "ic2:fluid_cell{Fluid:{FluidName:\"ic2biogas\",Amount:1000}}"
+  ],
+  "ic2biomass": [
+   "ic2:fluid_cell{Fluid:{FluidName:\"ic2biomass\",Amount:1000}}"
+  ],
+  "ic2construction_foam": [
+   "ic2:fluid_cell{Fluid:{FluidName:\"ic2construction_foam\",Amount:1000}}"
+  ],
+  "ic2coolant": [
+   "ic2:fluid_cell{Fluid:{FluidName:\"ic2coolant\",Amount:1000}}"
+  ],
+  "ic2creosote": [
+   "ic2:fluid_cell{Fluid:{FluidName:\"ic2creosote\",Amount:1000}}"
+  ],
+  "ic2distilled_water": [
+   "ic2:fluid_cell{Fluid:{FluidName:\"ic2distilled_water\",Amount:1000}}"
+  ],
+  "ic2heavy_water": [
+   "ic2:fluid_cell{Fluid:{FluidName:\"ic2heavy_water\",Amount:1000}}"
+  ],
+  "ic2hot_coolant": [
+   "ic2:fluid_cell{Fluid:{FluidName:\"ic2hot_coolant\",Amount:1000}}"
+  ],
+  "ic2hot_water": [
+   "ic2:fluid_cell{Fluid:{FluidName:\"ic2hot_water\",Amount:1000}}"
+  ],
+  "ic2pahoehoe_lava": [
+   "ic2:fluid_cell{Fluid:{FluidName:\"ic2pahoehoe_lava\",Amount:1000}}"
+  ],
+  "ic2steam": [
+   "ic2:fluid_cell{Fluid:{FluidName:\"ic2steam\",Amount:1000}}"
+  ],
+  "ic2superheated_steam": [
+   "ic2:fluid_cell{Fluid:{FluidName:\"ic2superheated_steam\",Amount:1000}}"
+  ],
+  "ic2uu_matter": [
+   "ic2:fluid_cell{Fluid:{FluidName:\"ic2uu_matter\",Amount:1000}}"
+  ],
+  "ic2weed_ex": [
+   "ic2:fluid_cell{Fluid:{FluidName:\"ic2weed_ex\",Amount:1000}}"
+  ],
   "lava": [
    "minecraft:lava_bucket",
    "ic2:fluid_cell{Fluid:{FluidName:\"lava\",Amount:1000}}"
@@ -859,6 +933,10 @@
    "ru": "Бумага",
    "stack": "minecraft:paper"
   },
+  "minecraft:piston": {
+   "ru": "Поршень",
+   "stack": "minecraft:piston"
+  },
   "minecraft:planks": {
    "ru": "Доски",
    "stack": "minecraft:planks"
@@ -1122,6 +1200,10 @@
   "minecraft:stick": {
    "ru": "Палка",
    "stack": "minecraft:stick"
+  },
+  "minecraft:sticky_piston": {
+   "ru": "Липкий поршень",
+   "stack": "minecraft:sticky_piston"
   },
   "minecraft:stone": {
    "ru": "Камень",
