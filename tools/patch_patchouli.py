@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Собирает изменённый Patchouli: берёт vendor/Patchouli-1.0-23.6-nobuttons.jar
 (там уже правки классов: одна кнопка «История», скрытые статьи в шкале считаются вместе с обычными)
-и подменяет файлы из vendor/patchouli-overrides (сейчас — русские подписи шкалы прогресса).
+и подменяет файлы из vendor/patchouli-overrides:
+- русские подписи шкалы прогресса;
+- BookTextParser.class: ссылка на закрытую статью не открывает её (см. tools/patches/LockedLinkPatch.java).
 
 Результат: dist/Patchouli-1.0-23.6-tomes.jar
 """
