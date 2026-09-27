@@ -1,0 +1,78 @@
+@category generators
+name: Первые генераторы
+description: Откуда брать энергию в начале пути.
+icon: te#generator
+sort: 3
+
+@entry generator
+name: Генератор
+icon: te#generator
+sort: 0
+unlock: first_power
+
+== spotlight te#generator
+**Генератор** сжигает любое печное топливо и выдаёт 10 EU/t. Кусок угля даёт 4000 EU. Первый источник энергии почти для каждого инженера.
+
+== grid te#generator
+_ ic2:re_battery _
+ore:plateIron ore:plateIron ore:plateIron
+_ te#iron_furnace _
+
+== text | Советы
+Поставь рядом [[power/storage|Энергохранилище]]: генератор не должен работать вхолостую.
+
+Топливо можно подавать автоматически, например воронкой. Когда появится свободная лава, переходи на [[generators/geothermal|Геотермальный генератор]].
+
+@entry geothermal
+name: Геотермальный генератор
+icon: te#geo_generator
+sort: 1
+unlock: machines
+
+== spotlight te#geo_generator
+**Геотермальный генератор** сжигает лаву и выдаёт 20 EU/t — вдвое больше обычного. Бак вмещает 8 вёдер лавы.
+
+== text | Лава
+Лаву заливают вёдрами, ячейками или насосом прямо из озера в Незере.
+
+Удобная связка на всю игру: насос у лавового озера, провод и накопитель.
+
+@entry solar
+name: Солнечная панель
+icon: te#solar_generator
+sort: 2
+unlock: first_power
+
+== spotlight te#solar_generator
+**Солнечная панель** даёт 1 EU/t днём, если над ней открытое небо и нет дождя. Не требует топлива и никогда не ломается.
+
+== grid te#solar_generator
+ore:dustCoal minecraft:glass ore:dustCoal
+minecraft:glass ore:dustCoal minecraft:glass
+ore:circuitBasic te#generator ore:circuitBasic
+
+== text | Использование
+Одна панель — это мало, но десяток на крыше полностью питает дробитель и печь днём.
+
+Ставь рядом [[power/storage|накопитель]], чтобы машины работали и ночью.
+
+@entry water_wind
+name: Вода и ветер
+icon: te#water_generator
+sort: 3
+unlock: first_power
+
+== text
+Два простых генератора, работающих от природы:
+- **Гидрогенератор** даёт энергию от окружающих его блоков воды: чем больше воды вокруг, тем больше энергии. Его можно заправлять и вёдрами воды;
+- **Ветрогенератор** зависит от высоты и открытого пространства вокруг: ставь его высоко, в стороне от других блоков.
+
+== grid te#water_generator*2
+ore:stickWood ore:plankWood ore:stickWood
+ore:plankWood te#generator ore:plankWood
+ore:stickWood ore:plankWood ore:stickWood
+
+== grid te#wind_generator
+ore:ingotIron _ ore:ingotIron
+_ te#generator _
+ore:ingotIron _ ore:ingotIron

@@ -1,0 +1,210 @@
+@category power
+name: Электричество
+description: Энергия, напряжение, провода, трансформаторы и накопители.
+icon: ic2:cable#type:copper,insulation:1
+sort: 1
+
+@entry eu
+name: Энергия и напряжение
+icon: minecraft:redstone
+sort: 0
+unlock: wiring
+
+== text
+Энергия измеряется в ~EU~, а её поток — в ~EU/t~, энергии за тик (20 тиков в секунду). Генератор, выдающий 10 EU/t, даёт 200 EU в секунду.
+
+Энергия идёт по проводам ~пакетами~. Размер пакета — это ~напряжение~, и у каждого устройства есть предел, который оно выдержит.
+
+== text | Уровни напряжения
+- ~1 — низкое~: пакеты до 32 EU;
+- ~2 — среднее~: до 128 EU;
+- ~3 — высокое~: до 512 EU;
+- ~4 — сверхвысокое~: до 2048 EU;
+- ~5 — предельное~: до 8192 EU.
+
+Почти все машины рассчитаны на низкое напряжение.
+
+== text | Перенапряжение
+!!Машина, получившая пакет больше своего уровня, взрывается.!! Поэтому между мощным накопителем и простыми машинами всегда нужен [[power/transformers|трансформатор]].
+
+Уровень машины можно поднять ~улучшением «Трансформатор»~: каждое добавляет один уровень.
+
+@entry cables
+name: Провода
+icon: ic2:cable#type:copper,insulation:1
+sort: 1
+unlock: wiring
+
+== text
+Провода соединяют генераторы, накопители и машины. У каждого провода есть ~предел~ — самый большой пакет, который он пропустит, — и ~потери~: сколько EU теряется на каждом блоке пути.
+
+== text | Виды проводов
+- *Оловянный*: до 32 EU, потери 0,2 на блок;
+- *Медный*: до 128 EU, потери 0,2;
+- *Золотой*: до 512 EU, потери 0,4;
+- *Высоковольтный*: до 2048 EU, потери 0,8;
+- *Стекловолоконный*: до 8192 EU, потери всего 0,025.
+
+== text | Изоляция
+Голый провод под напряжением бьёт током. Изоляция из резины защищает, а золотому и высоковольтному нужно два и три слоя.
+
+Пакет, который больше предела провода, !!сжигает провод!!. Длинные линии лучше тянуть стекловолокном: оно почти не теряет энергию.
+
+== grid ic2:cable#type:tin,insulation:1
+ore:itemRubber ic2:cable#type:tin,insulation:0 _
+_ _ _
+_ _ _
+
+== grid ic2:cable#type:copper,insulation:1
+ore:itemRubber ic2:cable#type:copper,insulation:0 _
+_ _ _
+_ _ _
+
+== grid ic2:cable#type:glass,insulation:0*6
+minecraft:glass minecraft:glass minecraft:glass
+ic2:dust#energium ore:dustSilver ic2:dust#energium
+minecraft:glass minecraft:glass minecraft:glass
+
+@entry special_cables
+name: Детектор и разъединитель
+icon: ic2:cable#type:detector,insulation:0
+sort: 2
+unlock: workshop
+
+== text
+Два особых провода для автоматики:
+- *Провод-детектор* подаёт редстоун-сигнал, пока через него идёт энергия. По нему удобно зажигать лампу «сеть работает»;
+- *Провод-разъединитель* перестаёт пропускать энергию, когда на него подан редстоун-сигнал. Им выключают целые участки сети рычагом.
+
+== grid ic2:cable#type:detector,insulation:0
+_ ore:circuitBasic _
+minecraft:redstone ic2:cable#type:iron,insulation:3 minecraft:redstone
+_ minecraft:redstone _
+
+== grid ic2:cable#type:splitter,insulation:0
+_ minecraft:redstone _
+ic2:cable#type:iron,insulation:3 minecraft:lever ic2:cable#type:iron,insulation:3
+_ minecraft:redstone _
+
+@entry transformers
+name: Трансформаторы
+icon: te#lv_transformer
+sort: 3
+unlock: voltage
+
+== text
+**Трансформатор** связывает два соседних уровня напряжения: низкий и средний, средний и высокий и так далее.
+
+У него одна ~широкая сторона~ (с точками) и пять узких. В обычном режиме энергия, пришедшая на широкую сторону, выходит с узких уже пониженной. Так мощный накопитель безопасно питает простые машины.
+
+== text | Режимы
+В окне трансформатора можно выбрать режим: понижение, повышение или переключение редстоуном.
+- **Трансформатор НН**: уровни 1 и 2;
+- **Трансформатор СН**: 2 и 3;
+- **Трансформатор ВН**: 3 и 4;
+- **Трансформатор СВН**: 4 и 5.
+
+== grid te#lv_transformer
+ore:plankWood ic2:cable#type:tin,insulation:1 ore:plankWood
+ore:plankWood ic2:crafting#coil ore:plankWood
+ore:plankWood ic2:cable#type:tin,insulation:1 ore:plankWood
+
+== grid te#mv_transformer
+ic2:cable#type:copper,insulation:1 _ _
+ic2:resource#machine _ _
+ic2:cable#type:copper,insulation:1 _ _
+
+@entry storage
+name: Накопители энергии
+icon: te#batbox
+sort: 4
+unlock: first_power
+
+== text
+Накопители копят энергию и отдают её с одной стороны — с ~выхода~, отмеченного точкой. Все остальные стороны принимают энергию.
+- **Энергохранилище**: 40 000 EU, выход 32 EU;
+- **МЭСН**: 300 000 EU, выход 128 EU;
+- **МФЭ**: 4 млн EU, выход 512 EU;
+- **МФСУ**: 40 млн EU, выход 2048 EU.
+
+== text | Использование
+В слоты накопителя можно класть батареи и инструменты: верхний заряжает их, нижний разряжает в накопитель.
+
+Кнопка режима в окне выбирает, когда подавать редстоун-сигнал: пустой, полный, заряжается и так далее. По нему удобно включать запасные генераторы.
+
+== text | Осторожно
+!!Выход накопителя выдаёт пакеты своего уровня.!! МФЭ, подключённый напрямую к дробителю, взорвёт его. Ставь [[power/transformers|трансформаторы]].
+
+Накопитель, снятый ключом, сохраняет 80% заряда.
+
+== grid te#batbox
+ore:plankWood ic2:cable#type:tin,insulation:1 ore:plankWood
+ic2:re_battery ic2:re_battery ic2:re_battery
+ore:plankWood ore:plankWood ore:plankWood
+
+== grid te#cesu
+ore:plateBronze ic2:cable#type:copper,insulation:1 ore:plateBronze
+ic2:advanced_re_battery ic2:advanced_re_battery ic2:advanced_re_battery
+ore:plateBronze ore:plateBronze ore:plateBronze
+
+== grid te#mfe
+ic2:cable#type:gold,insulation:2 ic2:energy_crystal ic2:cable#type:gold,insulation:2
+ic2:energy_crystal ic2:resource#machine ic2:energy_crystal
+ic2:cable#type:gold,insulation:2 ic2:energy_crystal ic2:cable#type:gold,insulation:2
+
+== grid te#mfsu
+ic2:lapotron_crystal ore:circuitAdvanced ic2:lapotron_crystal
+ic2:lapotron_crystal te#mfe ic2:lapotron_crystal
+ic2:lapotron_crystal ic2:resource#advanced_machine ic2:lapotron_crystal
+
+@entry batteries
+name: Батареи и кристаллы
+icon: ic2:re_battery
+sort: 5
+unlock: wiring
+
+== text
+Переносные хранилища энергии для инструментов, брони и машин:
+- *Аккумулятор*: 10 000 EU, уровень 1;
+- *Улучшенный аккумулятор*: 100 000 EU, уровень 2;
+- *Энергетический кристалл*: 1 млн EU, уровень 3;
+- *Лазуротроновый кристалл*: 10 млн EU, уровень 4.
+
+== text
+Батарею в слоте энергии машины можно использовать вместо провода.
+
+== grid ic2:re_battery
+_ ic2:cable#type:tin,insulation:1 _
+ic2:casing#tin minecraft:redstone ic2:casing#tin
+ic2:casing#tin minecraft:redstone ic2:casing#tin
+
+== grid ic2:advanced_re_battery
+ic2:cable#type:copper,insulation:1 ic2:casing#bronze ic2:cable#type:copper,insulation:1
+ic2:casing#bronze ore:dustSulfur ic2:casing#bronze
+ic2:casing#bronze ore:dustLead ic2:casing#bronze
+
+== grid ic2:lapotron_crystal
+ore:dustLapis ore:circuitAdvanced ore:dustLapis
+ore:dustLapis ic2:energy_crystal ore:dustLapis
+ore:dustLapis ore:circuitAdvanced ore:dustLapis
+
+@entry chargepads
+name: Заряжающие плиты
+icon: te#chargepad_batbox
+sort: 6
+unlock: machines
+
+== text
+**Заряжающая плита** — накопитель, который сам заряжает всё, что есть у стоящего на ней: инструменты в инвентаре и надетую броню.
+
+Плиты бывают четырёх уровней, как накопители. Для нано- и квантовой брони нужна плита не слабее МФЭ.
+
+== grid te#chargepad_batbox
+ore:circuitBasic minecraft:stone_pressure_plate ore:circuitBasic
+ore:itemRubber te#batbox ore:itemRubber
+_ _ _
+
+== grid te#chargepad_mfe
+ore:circuitBasic minecraft:stone_pressure_plate ore:circuitBasic
+ore:itemRubber te#mfe ore:itemRubber
+_ _ _

@@ -19,6 +19,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 MOD = os.path.join(ROOT, "tomes")
 RES = os.path.join(MOD, "resources")
 BUILD = os.path.join(ROOT, "build")
+GEN = os.path.join(BUILD, "gen")
 DIST = os.path.join(ROOT, "dist")
 
 # Фиксированное время в zip, чтобы одинаковые исходники давали одинаковый jar.
@@ -30,10 +31,22 @@ def version():
         return json.load(f)[0]["version"]
 
 
+def generate():
+    """Собирает книги из разметки books/ в build/gen (см. tools/tome.py)."""
+    shutil.rmtree(GEN, ignore_errors=True)
+    r = subprocess.run([sys.executable, os.path.join(ROOT, "tools", "tome.py"), GEN])
+    if r.returncode:
+        sys.exit(r.returncode)
+
+
+def roots():
+    return [RES, GEN]
+
+
 def check():
     """Проверяет, что все JSON читаются, а ссылки внутри книг ведут на существующие статьи."""
     errors = []
-    for dirpath, _, files in os.walk(RES):
+    for dirpath, _, files in [w for r in roots() for w in os.walk(r)]:
         for name in files:
             if name.endswith((".json", ".mcmeta", ".info")):
                 path = os.path.join(dirpath, name)
@@ -43,8 +56,8 @@ def check():
                 except ValueError as e:
                     errors.append(f"{os.path.relpath(path, ROOT)}: {e}")
 
-    books = os.path.join(RES, "assets", "tomes", "patchouli_books")
-    adv_root = os.path.join(RES, "assets", "tomes", "advancements")
+    books = os.path.join(GEN, "assets", "tomes", "patchouli_books")
+    adv_root = os.path.join(GEN, "assets", "tomes", "advancements")
     for book in sorted(os.listdir(books)):
         for lang in sorted(os.listdir(os.path.join(books, book))):
             base = os.path.join(books, book, lang)
@@ -82,7 +95,7 @@ def check():
                             errors.append(f"{where} стр.{i + 1}: нет шаблона {t}")
                     for img in page.get("images", []):
                         ns, p = img.split(":", 1)
-                        if ns == "tomes" and not os.path.exists(os.path.join(RES, "assets", "tomes", p)):
+                        if ns == "tomes" and not any(os.path.exists(os.path.join(r, "assets", "tomes", p)) for r in roots()):
                             errors.append(f"{where} стр.{i + 1}: нет картинки {img}")
     return errors
 
@@ -106,6 +119,7 @@ def compile_class():
 
 
 def build():
+    generate()
     errors = check()
     if errors:
         print("Ошибки:\n  " + "\n  ".join(errors))
@@ -123,18 +137,25 @@ def build():
         add(z, "META-INF/MANIFEST.MF", b"Manifest-Version: 1.0\r\n\r\n")
         with open(cls, "rb") as f:
             add(z, "tomes/Tomes.class", f.read())
-        for dirpath, dirs, files in os.walk(RES):
-            dirs.sort()
-            for name in sorted(files):
-                path = os.path.join(dirpath, name)
-                arc = os.path.relpath(path, RES).replace(os.sep, "/")
-                with open(path, "rb") as f:
-                    add(z, arc, f.read())
+        seen = set()
+        for root in roots():
+            for dirpath, dirs, files in os.walk(root):
+                dirs.sort()
+                for name in sorted(files):
+                    path = os.path.join(dirpath, name)
+                    arc = os.path.relpath(path, root).replace(os.sep, "/")
+                    if arc in seen:
+                        print(f"Ошибка: {arc} есть и в tomes/resources, и в сгенерированном")
+                        sys.exit(1)
+                    seen.add(arc)
+                    with open(path, "rb") as f:
+                        add(z, arc, f.read())
     print(jar)
 
 
 if __name__ == "__main__":
     if "--check" in sys.argv:
+        generate()
         errs = check()
         print("\n".join(errs) if errs else "OK")
         sys.exit(1 if errs else 0)

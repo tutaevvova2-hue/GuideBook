@@ -1,0 +1,46 @@
+# Группы открытия статей: статья с «unlock: <группа>» появляется, когда в инвентаре
+# окажется любой предмет группы. Формат: «- предмет | название в «Что дальше»».
+
+@group first_power
+- ic2:resource#machine
+- ic2:re_battery
+- ic2:crafting#circuit
+
+@group iron_plate
+- ore:plateIron
+
+@group machines
+- te#generator
+- te#solar_generator
+- te#water_generator
+- te#wind_generator
+- te#batbox
+
+@group metal
+- ore:oreCopper
+- ore:oreTin
+- ore:ingotCopper
+- ore:ingotTin
+
+@group refining
+- te#compressor
+- te#metal_former
+- ic2:crushed#copper
+- ic2:crushed#iron
+- ic2:crushed#tin
+
+@group voltage
+- te#cesu
+- te#mfe
+- ic2:crafting#coil
+- te#lv_transformer
+
+@group wiring
+- ore:itemRubber
+- ic2:cable#type:copper,insulation:0
+- ic2:cable#type:tin,insulation:0
+
+@group workshop
+- te#macerator
+- te#extractor
+- te#electric_furnace

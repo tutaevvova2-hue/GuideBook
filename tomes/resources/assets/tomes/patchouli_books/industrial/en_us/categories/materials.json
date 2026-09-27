@@ -1,7 +1,0 @@
-{
- "name": "Материалы",
- "description": "Металлы, пластины, электросхемы и корпуса машин.",
- "icon": "ic2:crafting:1",
- "sortnum": 2,
- "secret": true
-}

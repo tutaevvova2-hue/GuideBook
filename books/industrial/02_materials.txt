@@ -1,0 +1,136 @@
+@category materials
+name: Материалы
+description: Металлы, пластины, электросхемы и корпуса машин.
+icon: ic2:crafting#circuit
+sort: 2
+
+@entry metals
+name: Металлы и пластины
+icon: ic2:plate#copper
+sort: 0
+unlock: metal
+
+== text
+Почти каждый рецепт начинается с металла в одной из форм:
+- *слиток* — из руды или пыли в печи;
+- *пластина* — слиток под [[start/hand_tools|молотом]] или в [[processing/metal_former|Металлоформовочной машине]];
+- *плотная пластина* — девять пластин в [[processing/compressor|Сжимателе]];
+- *корпус* — половинка пластины, режется молотом или Металлоформовочной машиной.
+
+== text | Сплавы
+*Бронза*: три медные пыли и одна оловянная дают четыре бронзовые пыли, из них в печи — бронзовые слитки. Из бронзы делают инструменты, броню и корпуса ранних машин.
+
+*Сталь* выплавляют в доменной печи из железа, её описание — в томе о тяжёлой промышленности.
+
+== grid ic2:dust#bronze
+ic2:dust#small_bronze ic2:dust#small_bronze ic2:dust#small_bronze
+ic2:dust#small_bronze ic2:dust#small_bronze ic2:dust#small_bronze
+ic2:dust#small_bronze ic2:dust#small_bronze ic2:dust#small_bronze
+
+== grid ic2:plate#copper
+ore:ingotCopper ore:craftingToolForgeHammer _
+_ _ _
+_ _ _
+
+== machine te#compressor
+ore:plateCopper*9 -> ic2:plate#dense_copper
+ore:plateIron*9 -> ic2:plate#dense_iron
+Плотные пластины из девяти обычных.
+
+@entry circuits
+name: Электросхемы
+icon: ic2:crafting#circuit
+sort: 1
+unlock: wiring
+
+== text
+*Электросхема* — сердце любой машины. Её делают из изолированного медного провода, редстоуна и железной пластины.
+
+*Улучшенная электросхема* добавляет светопыль и лазурит и нужна для машин среднего уровня, брони и сканеров.
+
+== grid ic2:crafting#circuit
+ic2:cable#type:copper,insulation:1 ic2:cable#type:copper,insulation:1 ic2:cable#type:copper,insulation:1
+minecraft:redstone ore:plateIron minecraft:redstone
+ic2:cable#type:copper,insulation:1 ic2:cable#type:copper,insulation:1 ic2:cable#type:copper,insulation:1
+
+== grid ic2:crafting#advanced_circuit
+minecraft:redstone minecraft:glowstone_dust minecraft:redstone
+minecraft:dye:4 ore:circuitBasic minecraft:dye:4
+minecraft:redstone minecraft:glowstone_dust minecraft:redstone
+
+@entry alloys
+name: Композит и углепластик
+icon: ic2:crafting#alloy
+sort: 2
+unlock: workshop
+
+== text
+Два материала, без которых не обойтись на среднем этапе:
+- *Композит*: из смеси железной, бронзовой и оловянной пластин в [[processing/compressor|Сжимателе]]. Нужен для корпуса улучшенных машин и брони;
+- *Углепластик*: угольная пыль превращается в углеволокно, углеволокно в углеткань, а углеткань в Сжимателе — в пластину. Из него делают нано-броню и лёгкие роторы.
+
+== grid ic2:crafting#carbon_fibre
+ore:dustCoal ore:dustCoal _
+ore:dustCoal ore:dustCoal _
+_ _ _
+
+== grid ic2:crafting#carbon_mesh
+ic2:crafting#carbon_fibre ic2:crafting#carbon_fibre _
+_ _ _
+_ _ _
+
+== machine te#compressor
+ic2:crafting#carbon_mesh -> ic2:crafting#carbon_plate
+ic2:ingot#alloy -> ic2:crafting#alloy
+Последние шаги в Сжимателе.
+
+@entry casings
+name: Корпуса машин
+icon: ic2:resource#machine
+sort: 3
+unlock: iron_plate
+
+== text
+*Базовый корпус машины* — основа почти всех машин: из восьми железных пластин.
+
+*Улучшенный корпус машины* — из стали, композита и углепластика, для машин среднего и высокого уровня.
+
+Если сломать машину без [[start/wrench|ключа]], вернётся только её корпус.
+
+== grid ic2:resource#machine
+ore:plateIron ore:plateIron ore:plateIron
+ore:plateIron _ ore:plateIron
+ore:plateIron ore:plateIron ore:plateIron
+
+== grid ic2:resource#advanced_machine
+ore:plateSteel ic2:crafting#carbon_plate ore:plateSteel
+ic2:crafting#alloy ic2:resource#machine ic2:crafting#alloy
+ore:plateSteel ic2:crafting#carbon_plate ore:plateSteel
+
+@entry parts
+name: Детали
+icon: ic2:crafting#coil
+sort: 4
+unlock: first_power
+
+== text
+Мелкие детали, которые встречаются во многих рецептах:
+- *Катушка* — для трансформаторов, магнетизатора и моторов;
+- *Электромотор* — для буров, насоса и вентиляторов;
+- *Теплопровод* — для теплогенераторов и реактора;
+- *Консервная банка* — упаковка для еды и топлива.
+
+== grid ic2:crafting#coil
+ic2:cable#type:copper,insulation:0 ic2:cable#type:copper,insulation:0 ic2:cable#type:copper,insulation:0
+ic2:cable#type:copper,insulation:0 minecraft:iron_ingot ic2:cable#type:copper,insulation:0
+ic2:cable#type:copper,insulation:0 ic2:cable#type:copper,insulation:0 ic2:cable#type:copper,insulation:0
+
+== grid ic2:crafting#electric_motor
+_ ic2:casing#tin _
+ic2:crafting#coil minecraft:iron_ingot ic2:crafting#coil
+_ ic2:casing#tin _
+
+== grid ic2:crafting#heat_conductor
+ore:itemRubber ore:plateCopper ore:itemRubber
+ore:itemRubber ore:plateCopper ore:itemRubber
+ore:itemRubber ore:plateCopper ore:itemRubber

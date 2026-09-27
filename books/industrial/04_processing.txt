@@ -1,0 +1,211 @@
+@category processing
+name: Обработка руды
+description: Машины, которые превращают одну руду в два и больше слитка.
+icon: te#macerator
+sort: 4
+
+@entry iron_furnace
+name: Железная печь
+icon: te#iron_furnace
+sort: 0
+unlock: iron_plate
+
+== spotlight te#iron_furnace
+**Железная печь** работает на обычном топливе, как каменная, но плавит быстрее и экономнее. Хороша, пока нет электричества.
+
+== grid te#iron_furnace
+_ ore:plateIron _
+ore:plateIron _ ore:plateIron
+ore:plateIron minecraft:furnace ore:plateIron
+
+@entry macerator
+name: Дробитель
+icon: te#macerator
+sort: 1
+unlock: machines
+
+== spotlight te#macerator
+**Дробитель** измельчает руду в две порции *измельчённой руды*, а камень, слитки и многое другое — в пыль. Главная машина раннего этапа: удваивает всю добытую руду.
+
+== grid te#macerator
+minecraft:flint minecraft:flint minecraft:flint
+minecraft:cobblestone ic2:resource#machine minecraft:cobblestone
+_ ore:circuitBasic _
+
+== text | Работа
+- Энергия: 2 EU/t, низкое напряжение;
+- одна операция: 300 тиков (15 с), это 600 EU.
+
+Измельчённая руда плавится в печи в слиток. Для ещё большего выхода её промывают и прогоняют через [[processing/thermal_centrifuge|Тепловую центрифугу]].
+
+== machine te#macerator
+ore:oreCopper -> ic2:crushed#copper*2
+ore:oreIron -> ic2:crushed#iron*2
+ore:oreTin -> ic2:crushed#tin*2
+Примеры рецептов.
+
+== text | Улучшения
+- ~Ускоритель~ делает работу быстрее, но повышает расход энергии;
+- ~Трансформатор~ поднимает допустимое напряжение;
+- ~Энергохранитель~ увеличивает внутренний запас энергии;
+- ~Выталкиватель~ сам выкладывает готовое в соседний сундук.
+
+@entry electric_furnace
+name: Электрическая печь
+icon: te#electric_furnace
+sort: 2
+unlock: machines
+
+== spotlight te#electric_furnace
+**Электрическая печь** плавит всё, что плавит обычная печь, но втрое быстрее и без топлива.
+
+== grid te#electric_furnace
+_ ore:circuitBasic _
+minecraft:redstone te#iron_furnace minecraft:redstone
+_ _ _
+
+== text | Работа
+- Энергия: 3 EU/t, низкое напряжение;
+- одна операция: 100 тиков (5 с), это 300 EU.
+
+Самая частая пара в начале — дробитель и электрическая печь: руда уходит в дробитель, измельчённая руда — в печь.
+
+@entry extractor
+name: Экстрактор
+icon: te#extractor
+sort: 3
+unlock: machines
+
+== spotlight te#extractor
+**Экстрактор** выжимает из предметов полезное: из латекса — резину, из саженца каучукового дерева — резину, из снега — снежки.
+
+== grid te#extractor
+ic2:treetap ic2:resource#machine ic2:treetap
+ic2:treetap ore:circuitBasic ic2:treetap
+_ _ _
+
+== text | Работа
+- Энергия: 2 EU/t, низкое напряжение;
+- одна операция: 300 тиков (15 с), это 600 EU.
+
+Главная его работа — [[start/rubber|резина]]: из одной порции латекса получается три резины вместо одной в печи.
+
+== machine te#extractor
+ic2:sapling -> ic2:crafting#rubber
+Примеры рецептов.
+
+@entry compressor
+name: Сжиматель
+icon: te#compressor
+sort: 4
+unlock: workshop
+
+== spotlight te#compressor
+**Сжиматель** спрессовывает предметы: пластины — в плотные пластины, смесь металлов — в [[materials/alloys|композит]], углеволоконную сетку — в углепластик, снежки — в снег.
+
+== grid te#compressor
+minecraft:stone _ minecraft:stone
+minecraft:stone ic2:resource#machine minecraft:stone
+minecraft:stone ore:circuitBasic minecraft:stone
+
+== text | Работа
+- Энергия: 2 EU/t, низкое напряжение;
+- одна операция: 300 тиков (15 с), это 600 EU.
+
+Нужен для многих деталей среднего этапа, в первую очередь для сплава и углепластика.
+
+== machine te#compressor
+ic2:ingot#alloy -> ic2:crafting#alloy
+ore:plateIron*9 -> ic2:plate#dense_iron
+ic2:crafting#carbon_mesh -> ic2:crafting#carbon_plate
+Примеры рецептов.
+
+@entry metal_former
+name: Металлоформовочная машина
+icon: te#metal_former
+sort: 5
+unlock: workshop
+
+== spotlight te#metal_former
+**Металлоформовочная машина** заменяет молот и кусачки. У него три режима, переключаются кнопкой в окне:
+- ~прокатка~: слиток в пластину;
+- ~резка~: пластина в провода;
+- ~вытяжка~: слиток в корпус и прочее.
+
+== grid te#metal_former
+_ ore:circuitBasic _
+ic2:tool_box ic2:resource#machine ic2:tool_box
+ic2:crafting#coil ic2:crafting#coil ic2:crafting#coil
+
+== text | Работа
+- Энергия: 10 EU/t, низкое напряжение;
+- одна операция: 200 тиков (10 с), это 2000 EU.
+
+Не тратит инструменты и работает сам. С ним провода и пластины перестают быть дефицитом.
+
+== machine te#metal_former
+ore:ingotCopper -> ic2:plate#copper
+ore:plateCopper -> ic2:cable#type:copper,insulation:0*2
+Примеры рецептов.
+
+@entry ore_washing
+name: Рудопромывочная машина
+icon: te#ore_washing_plant
+sort: 6
+unlock: refining
+
+== spotlight te#ore_washing_plant
+**Рудопромывочная машина** отмывает *измельчённую руду* водой. Выходят *очищенная руда*, щепотки ценной пыли и каменная пыль.
+
+== grid te#ore_washing_plant
+ore:plateIron ore:plateIron ore:plateIron
+minecraft:bucket ic2:resource#machine minecraft:bucket
+ic2:crafting#electric_motor ore:circuitBasic ic2:crafting#electric_motor
+
+== text | Работа
+- Энергия: 16 EU/t, низкое напряжение;
+- одна операция: 500 тиков (25 с), это 8000 EU.
+
+Нужна вода: вёдрами, ячейками или насосом, бак вмещает 8 вёдер. Очищенная руда в печи даёт тот же слиток, но лучше отправить её в [[processing/thermal_centrifuge|Тепловую центрифугу]].
+
+== machine te#ore_washing_plant
+ore:crushedCopper -> ic2:purified#copper ic2:dust#small_copper*2 ic2:dust#stone
+Примеры рецептов.
+
+@entry thermal_centrifuge
+name: Тепловая центрифуга
+icon: te#centrifuge
+sort: 7
+unlock: refining
+
+== spotlight te#centrifuge
+**Тепловая центрифуга** разделяет очищенную руду на чистую пыль и побочный металл: из меди выпадает олово, из железа — золото, из олова — свинец и так далее.
+
+== grid te#centrifuge
+ic2:crafting#coil ic2:mining_laser ic2:crafting#coil
+minecraft:iron_ingot ic2:resource#advanced_machine minecraft:iron_ingot
+minecraft:iron_ingot ic2:crafting#electric_motor minecraft:iron_ingot
+
+== text | Работа
+- Энергия: 48 EU/t, низкое напряжение;
+- одна операция: 500 тиков (25 с), это 24000 EU.
+
+Перед работой она должна разогреться: на это уходит время и энергия. Держи её постоянно запитанной, чтобы не терять нагрев.
+
+@entry ore_chain
+name: Цепочка обогащения
+icon: ic2:crushed#iron
+sort: 8
+unlock: refining
+
+== text
+Полная обработка руды выглядит так:
+- руда → [[processing/macerator|Дробитель]] → 2 измельчённые руды;
+- измельчённая → [[processing/ore_washing|Рудопромывочная машина]] → очищенная руда, щепотки пыли, каменная пыль;
+- очищенная → [[processing/thermal_centrifuge|Тепловая центрифуга]] → пыль и побочный металл;
+- пыль → [[processing/electric_furnace|печь]] → слиток.
+
+== text | Сколько выходит
+Итог: из одного блока руды — два слитка и горсть побочных металлов. Девять щепоток пыли складываются в целую пыль.
+
+Если промывки и центрифуги ещё нет, измельчённую руду можно сразу плавить: два слитка с блока руды будут и так.
