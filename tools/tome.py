@@ -175,13 +175,18 @@ def resolve(ref, where="?", count=1):
     if m and not ref.startswith("{"):
         ref, amount = m.group(1), int(m.group(2))
     suffix = f"#{amount}" if amount > 1 else ""
+    if "|" in ref:
+        # Несколько вариантов: «OreDict:dustTin|ic2:crushed#tin». Имя и условие — по первому.
+        parts = [resolve(p, where, amount) for p in ref.split("|")]
+        return Item(ref, ",".join(p.stack for p in parts), parts[0].name, parts[0].trigger)
     if ref.startswith("OreDict:"):
         ref = "ore:" + ref[8:]
     if ref.startswith("Fluid:"):
         ref = "fluid:" + ref[6:]
-    if "|" in ref and not ref.startswith("ore:"):
-        parts = [resolve(p, where) for p in ref.split("|")]
-        return Item(ref, ",".join(p.stack for p in parts) + suffix, parts[0].name, parts[0].trigger)
+    if ref.startswith("ic2:fluid_cell#"):
+        fl = ref.split("#", 1)[1]
+        stack = 'ic2:fluid_cell' + suffix + '{Fluid:{FluidName:"%s",Amount:1000}}' % fl
+        return Item(ref, stack, EXTRA["fluid_cell_names"].get(fl, "Капсула: " + fl), {"item": "ic2:fluid_cell"})
     if ref.startswith("ore:"):
         name = ref[4:]
         stacks = []
@@ -240,6 +245,17 @@ def resolve(ref, where="?", count=1):
         return Item(ref, ref + suffix, name or ref, trigger_for(ref))
     err(where, f"не понимаю предмет «{ref}»")
     return Item(ref, "minecraft:barrier", ref, None)
+
+
+def stack_keys(it):
+    """Набор «предмет:мета» без количества и NBT — чтобы сравнивать ore:oreTin и ic2:resource#tin_ore."""
+    keys = set()
+    for st in it.stack.split(","):
+        base = st.split("{")[0].split("#")[0]
+        if base.count(":") == 1:
+            base += ":0"
+        keys.add(base)
+    return keys
 
 
 def trigger_for(stack):
@@ -656,28 +672,55 @@ class Book:
             over = (b - bottom + 8) // 9
             err(where, f"текст не влезает на страницу: лишних строк ≈{over}")
 
+    def split_pages(self, t, start, where):
+        """Делит текст на части по абзацам и пунктам списка так, чтобы каждая помещалась.
+        Первая часть начинается с высоты start, остальные — с верха страницы без заголовка."""
+        blocks = re.split(r"(?=\$\(br2\)|\$\(li\))", t)
+        blocks = [b for b in blocks if b]
+        parts = []
+        cur = ""
+        y0 = start
+        for b in blocks:
+            cand = cur + b
+            body = cand[6:] if cand.startswith("$(br2)") else cand
+            top = y0 + (9 if body.startswith("$(li)") else 0)
+            if cur and text_bottom(body, top) > PAGE_BOTTOM:
+                parts.append(cur[6:] if cur.startswith("$(br2)") else cur)
+                cur = b
+                y0 = -4
+            else:
+                cur = cand
+        if cur:
+            parts.append(cur[6:] if cur.startswith("$(br2)") else cur)
+        for i, ptxt in enumerate(parts):
+            top = (start if i == 0 else -4) + (9 if ptxt.startswith("$(li)") else 0)
+            if text_bottom(ptxt, top) > PAGE_BOTTOM:
+                err(where, "абзац не помещается даже на отдельную страницу — разбей его")
+        return parts
+
     def page_text(self, e, args, title, text, ctx, first):
         t = markup(text, ctx)
         start = 22 if first else (12 if title else -4)
-        if t.startswith("$(li)"):
-            start += 9
-        self.check_text(t, start, ctx.where)
-        d = {"type": "text", "text": t}
-        if title:
-            d["title"] = title
-        return d
+        parts = self.split_pages(t, start, ctx.where)
+        res = []
+        for i, ptxt in enumerate(parts):
+            d = {"type": "text", "text": ptxt}
+            if title and i == 0:
+                d["title"] = title
+            res.append(d)
+        return res
 
     def page_spotlight(self, e, args, title, text, ctx, first):
         it = resolve(args[0], ctx.where)
         e.provides.append(it)
         t = markup(text, ctx)
-        self.check_text(t, 40 + (9 if t.startswith("$(li)") else 0), ctx.where)
-        d = {"type": "spotlight", "item": it.stack, "text": t}
+        parts = self.split_pages(t, 40, ctx.where)
+        d = {"type": "spotlight", "item": it.stack.split(",")[0], "text": parts[0]}
         if title:
             d["title"] = title
         if "link" in args[1:]:
             d["link_recipe"] = True
-        return d
+        return [d] + [{"type": "text", "text": p} for p in parts[1:]]
 
     def page_craft(self, e, args, title, text, ctx, first):
         """== craft <предмет> [номер рецепта] — рецепт верстака из файлов IC2."""
@@ -839,15 +882,17 @@ class Book:
             return None
         own = e.props.get("unlock")
         if mode == "auto":
-            prov = {it.ref for it in e.provides}
+            prov = set()
+            for it in e.provides:
+                prov |= stack_keys(it)
             for ref in e.props.get("provides", "").split(","):
                 if ref.strip():
-                    prov.add(resolve(ref.strip(), e.where).ref)
+                    prov |= stack_keys(resolve(ref.strip(), e.where))
             groups = []
             for g, gd in self.groups.items():
                 if g == own or not gd["entries"]:
                     continue
-                if any(it.ref in prov for it, _ in gd["resolved"]):
+                if any(stack_keys(it) & prov for it, _ in gd["resolved"]):
                     groups.append(g)
         else:
             groups = [g.strip() for g in mode.split(",") if g.strip()]

@@ -44,3 +44,15 @@
 - te#macerator
 - te#extractor
 - te#electric_furnace
+@group bronze
+- ic2:crushed#copper
+- ic2:crushed#tin
+- ic2:dust#copper
+- ic2:dust#tin
+- ic2:dust#bronze
+- ore:ingotBronze
+@group hv_cable
+- ic2:cable#type:iron,insulation:0
+- ic2:cable#type:iron,insulation:1
+- ic2:cable#type:iron,insulation:2
+- ic2:cable#type:iron,insulation:3

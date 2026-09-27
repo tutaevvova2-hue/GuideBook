@@ -1,4 +1,9 @@
 {
+ "fluid_cell_names": {
+  "ic2air": "Капсула сжатого воздуха",
+  "lava": "Капсула лавы",
+  "water": "Капсула воды"
+ },
  "fluid_names": {
   "lava": "Лава",
   "water": "Вода"
@@ -1134,6 +1139,10 @@
    "ru": "Каменная кирка",
    "stack": "minecraft:stone_pickaxe"
   },
+  "minecraft:stone_pressure_plate": {
+   "ru": "Каменная нажимная плита",
+   "stack": "minecraft:stone_pressure_plate"
+  },
   "minecraft:stone_shovel": {
    "ru": "Каменная лопата",
    "stack": "minecraft:stone_shovel"
@@ -1226,6 +1235,10 @@
    "ru": "Деревянная кирка",
    "stack": "minecraft:wooden_pickaxe"
   },
+  "minecraft:wooden_pressure_plate": {
+   "ru": "Деревянная нажимная плита",
+   "stack": "minecraft:wooden_pressure_plate"
+  },
   "minecraft:wooden_shovel": {
    "ru": "Деревянная лопата",
    "stack": "minecraft:wooden_shovel"
@@ -1275,7 +1288,8 @@
   "stickWood": "Палка",
   "stone": "Камень",
   "treeLeaves": "Листва",
-  "treeSapling": "Саженец"
+  "treeSapling": "Саженец",
+  "woodRubber": "Древесина гевеи"
  },
  "oredict": {
   "blockCoal": [
@@ -1466,6 +1480,9 @@
    "minecraft:sapling:3",
    "minecraft:sapling:4",
    "minecraft:sapling:5"
+  ],
+  "woodRubber": [
+   "ic2:rubber_wood"
   ],
   "wool": [
    "minecraft:wool"
