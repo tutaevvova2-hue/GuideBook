@@ -247,10 +247,27 @@ def resolve(ref, where="?", count=1):
     return Item(ref, "minecraft:barrier", ref, None)
 
 
+def split_stacks(stack):
+    """Делит список предметов Patchouli по запятым, не трогая запятые внутри NBT {…}."""
+    parts, depth, cur = [], 0, ""
+    for ch in stack:
+        if ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+        if ch == "," and depth == 0:
+            parts.append(cur)
+            cur = ""
+        else:
+            cur += ch
+    parts.append(cur)
+    return parts
+
+
 def stack_keys(it):
     """Набор «предмет:мета» без количества и NBT — чтобы сравнивать ore:oreTin и ic2:resource#tin_ore."""
     keys = set()
-    for st in it.stack.split(","):
+    for st in split_stacks(it.stack):
         base = st.split("{")[0].split("#")[0]
         if base.count(":") == 1:
             base += ":0"
@@ -611,7 +628,7 @@ class Book:
             p = cat.props
             locked = all(e.props.get("unlock") for e in cat.entries)
             d = {"name": p.get("name", cat.id), "description": p.get("description", ""),
-                 "icon": resolve(p.get("icon", "minecraft:book"), cat.where).stack.split(",")[0],
+                 "icon": split_stacks(resolve(p.get("icon", "minecraft:book"), cat.where).stack)[0],
                  "sortnum": int(p.get("sort", 0))}
             if p.get("parent"):
                 d["parent"] = p["parent"]
@@ -651,7 +668,7 @@ class Book:
             err(e.where, "у статьи нет icon")
             icon = "minecraft:book"
         d = {"name": p.get("name", e.id), "category": e.cat.id,
-             "icon": resolve(icon, e.where).stack.split(",")[0],
+             "icon": split_stacks(resolve(icon, e.where).stack)[0],
              "sortnum": int(p.get("sort", 0)), "pages": pages}
         if p.get("unlock"):
             d["advancement"] = f"{MODID}:{self.id}/{p['unlock']}"
@@ -715,7 +732,7 @@ class Book:
         e.provides.append(it)
         t = markup(text, ctx)
         parts = self.split_pages(t, 40, ctx.where)
-        d = {"type": "spotlight", "item": it.stack.split(",")[0], "text": parts[0]}
+        d = {"type": "spotlight", "item": split_stacks(it.stack)[0], "text": parts[0]}
         if title:
             d["title"] = title
         if "link" in args[1:]:
