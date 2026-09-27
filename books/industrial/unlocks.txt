@@ -105,3 +105,24 @@
 - te#steam_kinetic_generator
 - ic2:crafting#steam_turbine_blade
 - ic2:crafting#copper_boiler
+
+@group power_units
+- ic2:crafting#power_unit
+- ic2:crafting#small_power_unit
+- ic2:drill
+- ic2:chainsaw
+
+@group laser
+- ic2:mining_laser
+- ic2:crafting#advanced_circuit
+- ic2:energy_crystal
+
+@group miner
+- te#miner
+- ic2:mining_pipe#pipe
+- ic2:scanner
+
+@group explosives
+- ic2:dynamite
+- te#itnt
+- minecraft:gunpowder
