@@ -154,3 +154,16 @@
 - ic2:crop_stick
 - ic2:cropnalyzer
 - ic2:crop_res#fertilizer
+
+@group gravisuite
+- ic2:energy_pack
+- ic2:jetpack_electric
+- ic2:diamond_drill
+- ic2:electric_wrench
+- ic2:electric_treetap
+- gravisuite:advancedlappack
+- gravisuite:advancedjetpack
+- gravisuite:advanceddrill
+- gravisuite:advancedchainsaw
+- gravisuite:gravitool
+

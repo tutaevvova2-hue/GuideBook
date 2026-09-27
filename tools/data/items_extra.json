@@ -93,6 +93,70 @@
   ]
  },
  "items": {
+  "gravisuite:advancedchainsaw": {
+   "ru": "Улучшенная цепная пила",
+   "stack": "gravisuite:advancedchainsaw"
+  },
+  "gravisuite:advanceddrill": {
+   "ru": "Улучшенный алмазный бур",
+   "stack": "gravisuite:advanceddrill"
+  },
+  "gravisuite:advancedjetpack": {
+   "ru": "Улучшенный реактивный ранец",
+   "stack": "gravisuite:advancedjetpack"
+  },
+  "gravisuite:advancedlappack": {
+   "ru": "Улучшенный мультиранец",
+   "stack": "gravisuite:advancedlappack"
+  },
+  "gravisuite:advancednanochestplate": {
+   "ru": "Улучшенный нановолоконный нагрудник",
+   "stack": "gravisuite:advancednanochestplate"
+  },
+  "gravisuite:crafting:0": {
+   "ru": "Изоляция сверхпроводника",
+   "stack": "gravisuite:crafting:0"
+  },
+  "gravisuite:crafting:1": {
+   "ru": "Сверхпроводник",
+   "stack": "gravisuite:crafting:1"
+  },
+  "gravisuite:crafting:2": {
+   "ru": "Охлаждающий элемент",
+   "stack": "gravisuite:crafting:2"
+  },
+  "gravisuite:crafting:3": {
+   "ru": "Гравитационный двигатель",
+   "stack": "gravisuite:crafting:3"
+  },
+  "gravisuite:crafting:4": {
+   "ru": "Магнетрон",
+   "stack": "gravisuite:crafting:4"
+  },
+  "gravisuite:crafting:5": {
+   "ru": "Ядро ваджры",
+   "stack": "gravisuite:crafting:5"
+  },
+  "gravisuite:crafting:6": {
+   "ru": "Ускоритель двигателя",
+   "stack": "gravisuite:crafting:6"
+  },
+  "gravisuite:gravichestplate": {
+   "ru": "Гравитационный нагрудник",
+   "stack": "gravisuite:gravichestplate"
+  },
+  "gravisuite:gravitool": {
+   "ru": "Гравитул",
+   "stack": "gravisuite:gravitool"
+  },
+  "gravisuite:ultimatelappack": {
+   "ru": "Ультимейтный мультиранец",
+   "stack": "gravisuite:ultimatelappack"
+  },
+  "gravisuite:vajra": {
+   "ru": "Ваджра",
+   "stack": "gravisuite:vajra"
+  },
   "minecraft:acacia_door": {
    "ru": "Акациевая дверь",
    "stack": "minecraft:acacia_door"

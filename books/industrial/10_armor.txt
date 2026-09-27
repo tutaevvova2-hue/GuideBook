@@ -182,7 +182,11 @@ unlock: iridium
 
 == craft ic2:quantum_helmet
 
-== craft ic2:quantum_chestplate
+== grid ic2:quantum_chestplate
+ic2:crafting#alloy gravisuite:advancednanochestplate ic2:crafting#alloy
+ic2:crafting#iridium ic2:lapotron_crystal ic2:crafting#iridium
+ic2:crafting#iridium ic2:crafting#alloy ic2:crafting#iridium
+Жилет собирается вокруг [[advanced_nano|Улучшенного нановолоконного нагрудника]].
 
 == craft ic2:quantum_leggings
 
@@ -190,7 +194,7 @@ unlock: iridium
 
 == text | Примечания
 - Каждая единица поглощённого урона стоит 20 000 EU: в бою костюм садится быстро.
-- Квантовый жилет собран вокруг электрического реактивного ранца и летает так же: прыжок — подъём, прыжок и $(k:Mode Switch Key) — парение.
+- Квантовый жилет летает, как реактивный ранец: прыжок — подъём, прыжок и $(k:Mode Switch Key) — парение.
 - Для детали каждой части нужна [[iridium|укреплённая иридиевая пластина]].
 
 @entry solar_static

@@ -1,0 +1,324 @@
+@category gravisuite
+name: Гравитационный комплект
+description: Мультиранцы, улучшенные реактивные ранцы, гравитационный нагрудник, улучшенные бур и пила, гравитул и ваджра.
+icon: gravisuite:gravichestplate
+sort: 15
+
+@entry gs_intro
+name: О комплекте
+icon: gravisuite:gravichestplate
+sort: 0
+unlock: gravisuite
+
+== text
+~Гравитационный комплект~ — следующая ступень после нано- и квантовой техники. В него входят:
+- *мультиранцы* — огромные запасы энергии на спине;
+- *реактивные ранцы и нагрудники*, в которых можно летать, как птица;
+- *инструменты*: улучшенный бур, улучшенная пила, гравитул и ваджра.
+
+Почти всё здесь требует улучшенных электросхем, углепластика и композита, а старшие вещи — иридия.
+
+== text | Клавиши полёта
+- $(k:Gravi Fly Key) — включить или выключить двигатель ранца или нагрудника.
+- Прыжок — подъём, Вперёд — полёт.
+- Прыжок + $(k:Mode Switch Key) — режим парения.
+- $(k:Boost Key) — ускорение, за дополнительную энергию.
+
+Все клавиши можно переназначить в настройках управления.
+
+== text | Заряд на экране
+Когда на тебе мультиранец, реактивный ранец или нагрудник из комплекта, в левом верхнем углу экрана видно, сколько процентов заряда осталось.
+
+У ранцев и нагрудников там же видно, включён ли двигатель и включено ли парение.
+
+== shot gs_hud.png | Заряд на экране
+Верхний левый угол экрана в полёте: надет улучшенный реактивный ранец, двигатель включён, парение включено.
+--
+Надпись о заряде и двигателе.
+
+@entry advanced_lappack
+name: Улучшенный мультиранец
+icon: gravisuite:advancedlappack
+sort: 1
+unlock: gravisuite
+
+== spotlight gravisuite:advancedlappack
+**Улучшенный мультиранец** — большой энергоранец. Носится вместо нагрудника и питает инструменты в руках, когда их собственный заряд кончается.
+
+Запас 3 000 000 EU, уровень 3 — в полтора раза больше [[batpacks|энергетического ранца]].
+
+== grid gravisuite:advancedlappack
+_ ic2:energy_pack _
+_ ic2:crafting#advanced_circuit _
+_ ic2:energy_crystal _
+Энергетический ранец, улучшенная электросхема и энергетический кристалл, одной колонкой.
+
+== text | Примечания
+- Мультиранец не защищает от урона: это не броня.
+- Заряжается, как любой аккумулятор уровня 3: в накопителе МФЭ или на [[chargepads|заряжающей плите]] МФЭ и выше.
+- Из него делают [[advanced_jetpack|Улучшенный реактивный ранец]] и [[ultimate_lappack|Ультимейтный мультиранец]].
+
+@entry advanced_jetpack
+name: Улучш. реактивный ранец
+icon: gravisuite:advancedjetpack
+sort: 2
+unlock: gravisuite
+
+== spotlight gravisuite:advancedjetpack
+**Улучшенный реактивный ранец** летает быстрее и дольше [[jetpacks|электрического]]. Запас 3 000 000 EU, уровень 3.
+
+Как и мультиранец, он ещё и питает инструменты в руках.
+
+== text | Полёт
+- $(k:Gravi Fly Key) включает двигатель. Пока двигатель выключен, ранец не летает.
+- Прыжок — подъём, Вперёд — полёт.
+- $(k:Boost Key) в полёте — ускорение, 60 EU за такт.
+- Прыжок + $(k:Mode Switch Key) — парение: ранец держит высоту, прыжок — вверх, Shift — вниз.
+
+Парение само выключается, когда ты встаёшь на землю.
+
+== text | Расход
+- Полёт — 12 EU за такт, парение — 6 EU за такт. На земле ранец энергию не тратит.
+- Полного заряда хватает на три с половиной часа полёта без ускорения.
+- Пока ранец тянет вверх или парит, падение не ранит: перед землёй зажми прыжок.
+
+!!Когда заряда остаётся меньше 5%, тяга слабеет!!: пора садиться.
+
+== grid gravisuite:crafting:6
+minecraft:glowstone_dust ic2:crafting#alloy minecraft:glowstone_dust
+ic2:crafting#advanced_circuit ic2:upgrade#overclocker ic2:crafting#advanced_circuit
+ic2:crafting#alloy ic2:advanced_heat_vent ic2:crafting#alloy
+Ускоритель двигателя. Нужен два раза.
+
+== grid gravisuite:advancedjetpack
+ic2:crafting#carbon_plate ic2:jetpack_electric ic2:crafting#carbon_plate
+gravisuite:crafting:6 gravisuite:advancedlappack gravisuite:crafting:6
+ic2:cable#type:glass,insulation:0 ic2:crafting#advanced_circuit ic2:cable#type:glass,insulation:0
+
+== text | Примечания
+- Ранец не защищает от урона.
+- Прикрепить его к нагруднику *Крепежом для реактивного ранца* нельзя. Вместо этого есть [[advanced_nano|Улучшенный нановолоконный нагрудник]]: и броня, и ранец сразу.
+
+@entry advanced_nano
+name: Улучшенный нагрудник
+icon: gravisuite:advancednanochestplate
+sort: 3
+unlock: gravisuite
+
+== spotlight gravisuite:advancednanochestplate
+**Улучшенный нановолоконный нагрудник** — [[nano_suit|нановолоконный жилет]] и улучшенный реактивный ранец в одной вещи. Запас 3 000 000 EU, уровень 3.
+
+Летает так же, как [[advanced_jetpack|Улучшенный реактивный ранец]], и питает инструменты в руках.
+
+== text | Защита
+- Поглощает урон так же, как нановолоконный жилет, но тратит на это всего 800 EU за единицу урона вместо 5000.
+- Если ты горишь, нагрудник гасит огонь водой из *Капсулы с водой* в инвентаре и возвращает пустую капсулу. Для этого в нём должно быть не меньше 50 000 EU.
+
+Держи при себе пару капсул с водой — и лава станет не так страшна.
+
+== grid gravisuite:advancednanochestplate
+ic2:crafting#carbon_plate gravisuite:advancedjetpack ic2:crafting#carbon_plate
+ic2:crafting#carbon_plate ic2:nano_chestplate ic2:crafting#carbon_plate
+ic2:cable#type:glass,insulation:0 ic2:crafting#advanced_circuit ic2:cable#type:glass,insulation:0
+
+== text | Дальше — кванты
+С этим комплектом [[quantum_suit|Квантовый жилет]] собирают не из нановолоконного жилета, а из улучшенного нагрудника: композит, иридиевые пластины и лазуротроновый кристалл вокруг него.
+
+Не спеши его разбирать: он понадобится.
+
+@entry advanced_drill
+name: Улучшенный алмазный бур
+icon: gravisuite:advanceddrill
+sort: 4
+unlock: gravisuite
+
+== spotlight gravisuite:advanceddrill
+**Улучшенный алмазный бур** копает всё, что может выкопать бур, вдвое быстрее [[drills|алмазного]]. Запас 45 000 EU, уровень 2.
+
+$(k:Mode Switch Key) + ПКМ переключают режимы.
+
+== text | Режимы
+- ~Нормальный~: скорость 35, 160 EU за блок.
+- ~Низкое питание~: скорость 16, как у алмазного бура, 80 EU за блок.
+- ~Точный~: скорость 10, 50 EU за блок. Удобно для аккуратной работы.
+- ~Большие дырки~: скорость 16, выкапывает сразу 3×3 блока, 160 EU за каждый.
+
+Режим виден в подсказке бура.
+
+== text | Большие дырки
+В этом режиме бур вынимает квадрат 3×3 поперёк направления взгляда: копаешь вперёд — стена, вниз — пол.
+
+Берёт он только камень, землю, траву, песок, гравий и глину, а также руду. Если энергии не хватит на все блоки, бур остановится и сообщит об этом.
+
+== grid gravisuite:advanceddrill
+ic2:upgrade#overclocker ic2:diamond_drill ic2:upgrade#overclocker
+ic2:crafting#advanced_circuit ic2:upgrade#overclocker ic2:crafting#advanced_circuit
+_ _ _
+
+@entry advanced_chainsaw
+name: Улучшенная цепная пила
+icon: gravisuite:advancedchainsaw
+sort: 5
+unlock: gravisuite
+
+== spotlight gravisuite:advancedchainsaw
+**Улучшенная цепная пила** рубит в два с половиной раза быстрее [[chainsaw|электропилы]] и бьёт сильнее: 14 единиц урона против 10.
+
+Запас 45 000 EU, уровень 2, 100 EU за блок или удар.
+
+== text | Режим стрижки
+$(k:Mode Switch Key) + ПКМ включают и выключают ~режим стрижки~:
+- включён — пила стрижёт овец (ПКМ) и снимает листву целиком, как ножницы;
+- выключен — пила просто рубит.
+
+Состояние режима видно в подсказке пилы.
+
+== grid gravisuite:advancedchainsaw
+_ ore:gemDiamond _
+ic2:upgrade#overclocker ic2:chainsaw ic2:upgrade#overclocker
+ic2:crafting#advanced_circuit ic2:upgrade#overclocker ic2:crafting#advanced_circuit
+
+@entry gravitool
+name: Гравитул
+icon: gravisuite:gravitool
+sort: 6
+unlock: gravisuite
+
+== spotlight gravisuite:gravitool
+**Гравитул** — четыре инструмента в одном: мотыга, краник, гаечный ключ и отвёртка. Запас 300 000 EU, уровень 2. Каждое действие — 50 EU.
+
+$(k:Mode Switch Key) + ПКМ переключают режим; он виден в названии.
+
+== text | Режимы
+- ~Мотыга~ — вспахивает землю и траву, как [[small_tools|электромотыга]].
+- ~Краник~ — собирает латекс с резиновых деревьев, как электрокраник.
+- ~Гаечный ключ~ — поворачивает и снимает машины без потерь, как [[wrench|ключ]]. ПКМ по стороне поворачивает машину этой стороной; если она уже так стоит — снимает её.
+- ~Отвёртка~ — поворачивает тыквы, повторители, компараторы, калитки, люки и наковальни. Shift — в обратную сторону. 500 EU за поворот.
+
+== grid gravisuite:gravitool
+ic2:crafting#carbon_plate ic2:electric_hoe ic2:crafting#carbon_plate
+ic2:crafting#alloy ic2:energy_crystal ic2:crafting#alloy
+ic2:electric_wrench ic2:crafting#advanced_circuit ic2:electric_treetap
+
+@entry superconductors
+name: Сверхпроводники
+icon: gravisuite:crafting:1
+sort: 7
+unlock: iridium
+
+== text
+Старшие вещи комплекта собираются из особых деталей. Все они требуют [[iridium|укреплённых иридиевых пластин]]:
+- *Сверхпроводник* — основа всего;
+- *Охлаждающий элемент* и *Гравитационный двигатель* — для гравитационного нагрудника;
+- *Магнетрон* и *Ядро ваджры* — для ваджры.
+
+== grid gravisuite:crafting:0*3
+ic2:crafting#alloy ic2:crafting#iridium ic2:crafting#alloy
+ic2:crafting#carbon_plate ic2:crafting#carbon_plate ic2:crafting#carbon_plate
+ic2:crafting#alloy ic2:crafting#iridium ic2:crafting#alloy
+Три изоляции сверхпроводника.
+
+== grid gravisuite:crafting:1*3
+gravisuite:crafting:0 gravisuite:crafting:0 gravisuite:crafting:0
+ic2:cable#type:glass,insulation:0 ore:ingotGold ic2:cable#type:glass,insulation:0
+gravisuite:crafting:0 gravisuite:crafting:0 gravisuite:crafting:0
+Три сверхпроводника.
+
+== grid gravisuite:crafting:2
+ic2:hex_heat_storage ic2:advanced_heat_exchanger ic2:hex_heat_storage
+ic2:heat_plating ic2:crafting#iridium ic2:heat_plating
+ic2:hex_heat_storage ic2:advanced_heat_exchanger ic2:hex_heat_storage
+Охлаждающий элемент: детали из [[coolant_cells|реакторных]] разделов.
+
+== grid gravisuite:crafting:3
+te#tesla_coil gravisuite:crafting:1 te#tesla_coil
+gravisuite:crafting:2 te#hv_transformer gravisuite:crafting:2
+te#tesla_coil gravisuite:crafting:1 te#tesla_coil
+Гравитационный двигатель.
+
+== grid gravisuite:crafting:4
+ore:plateIron ore:plateCopper ore:plateIron
+ore:plateCopper gravisuite:crafting:1 ore:plateCopper
+ore:plateIron ore:plateCopper ore:plateIron
+Магнетрон.
+
+== grid gravisuite:crafting:5
+_ gravisuite:crafting:4 _
+ic2:crafting#iridium te#tesla_coil ic2:crafting#iridium
+gravisuite:crafting:1 te#hv_transformer gravisuite:crafting:1
+Ядро ваджры.
+
+@entry ultimate_lappack
+name: Ультимейтный мультиранец
+icon: gravisuite:ultimatelappack
+sort: 8
+unlock: iridium
+
+== spotlight gravisuite:ultimatelappack
+**Ультимейтный мультиранец** — самый ёмкий ранец: 60 000 000 EU, уровень 4. Питает инструменты в руках, от урона не защищает.
+
+Заряжается в накопителе МФСУ или на плите МФСУ.
+
+== grid gravisuite:ultimatelappack
+ic2:lapotron_crystal ic2:crafting#iridium ic2:lapotron_crystal
+ic2:lapotron_crystal gravisuite:advancedlappack ic2:lapotron_crystal
+ic2:lapotron_crystal gravisuite:crafting:1 ic2:lapotron_crystal
+Шесть лазуротроновых кристаллов, иридиевая пластина, [[superconductors|сверхпроводник]] и улучшенный мультиранец.
+
+== text | Зачем
+Ультимейтный мультиранец входит в рецепт [[gravi_chestplate|Гравитационного нагрудника]]. А до тех пор он питает ваджру и бур в самых долгих походах.
+
+@entry gravi_chestplate
+name: Гравитационный нагрудник
+icon: gravisuite:gravichestplate
+sort: 9
+unlock: iridium
+
+== spotlight gravisuite:gravichestplate
+**Гравитационный нагрудник** — вершина инженерной брони. Запас 60 000 000 EU, уровень 4: заряжать в МФСУ или на плите МФСУ.
+
+Он и броня, и реактивный ранец, и энергоранец для инструментов.
+
+== text | Полёт
+Летает так же, как [[advanced_jetpack|Улучшенный реактивный ранец]], только быстрее и выше:
+- $(k:Gravi Fly Key) включает двигатель; работает он, пока в нагруднике не меньше 10 000 EU;
+- полёт стоит 278 EU за такт, пока ты в воздухе;
+- $(k:Boost Key) — сильное ускорение, 834 EU за такт.
+
+Потолок выше границы мира, а тяга не слабеет почти до полного разряда.
+
+== text | Защита
+- Поглощает урон почти как [[quantum_suit|квантовый жилет]], 20 000 EU за единицу урона.
+- Тушит огонь на тебе сразу и без капсул.
+- Перекрашивается красителями на верстаке, как кожаная броня.
+
+!!Следи за зарядом!!: полёт съедает около 5500 EU в секунду, полного нагрудника хватит примерно на три часа в воздухе.
+
+== grid gravisuite:gravichestplate
+gravisuite:crafting:1 ic2:quantum_chestplate gravisuite:crafting:1
+gravisuite:crafting:3 te#hv_transformer gravisuite:crafting:3
+gravisuite:crafting:1 gravisuite:ultimatelappack gravisuite:crafting:1
+Квантовый жилет, два [[superconductors|гравитационных двигателя]], трансформатор ВН, ультимейтный мультиранец и четыре сверхпроводника.
+
+@entry vajra
+name: Ваджра
+icon: gravisuite:vajra
+sort: 10
+unlock: iridium
+
+== spotlight gravisuite:vajra
+**Ваджра** — кирка, лопата и топор сразу. Камень, землю и дерево, даже обсидиан, она ломает мгновенно. Не берёт только коренную породу.
+
+Запас 10 000 000 EU, уровень 3. !!Каждый блок стоит 3333 EU!!: полного заряда хватит на три тысячи блоков.
+
+== text | Режимы и удар
+- $(k:Mode Switch Key) + ПКМ включают и выключают ~Шёлковое касание~: блоки падают целиком — руда, стекло, листва.
+- Удар ваджрой наносит 25 единиц урона и стоит 6666 EU. Без заряда — всего 1.
+
+Носи с ней [[ultimate_lappack|мультиранец]] или [[gravi_chestplate|гравитационный нагрудник]]: они подзаряжают её на ходу.
+
+== grid gravisuite:vajra
+ore:plateIron ic2:energy_crystal ore:plateIron
+ic2:crafting#carbon_plate gravisuite:crafting:5 ic2:crafting#carbon_plate
+ic2:crafting#alloy ic2:lapotron_crystal ic2:crafting#alloy
+Железные пластины, энергетический кристалл, углепластик, [[superconductors|ядро ваджры]], композит и лазуротроновый кристалл.
