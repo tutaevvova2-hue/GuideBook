@@ -787,22 +787,47 @@ class Book:
             ok = machine_recipe_exists(m.ref, inp, outs)
             if ok is False:
                 warn(ctx.where, f"в рецептах {m.ref} нет строки {inp} -> {' '.join(outs)}")
-        layout = tuple(len(o) for _, o in rows)
-        name, height = self.ensure_machine_template(layout, bool(title))
-        d = {"type": f"{MODID}:{name}", "m": m.stack}
-        if title:
-            d["title"] = title
-        for i, (inp, outs) in enumerate(rows, 1):
-            d[f"i{i}"] = resolve(inp, ctx.where).stack
-            for j, o in enumerate(outs, 1):
-                it = resolve(o, ctx.where)
-                e.provides.append(it)
-                d[f"o{i}_{j}"] = it.stack
         t = markup("\n".join(cap), ctx) if any(c.strip() for c in cap) else ""
+        # Строки, которые не помещаются, переносятся на следующую страницу; подпись — на последней
+        row_h = lambda outs: 28 if len(outs) == 1 else 54
+        chunks = []
+        cur = []
+        y = 16 if title else 2
+        for r in rows:
+            if cur and y + row_h(r[1]) > PAGE_BOTTOM + 9:
+                chunks.append(cur)
+                cur = []
+                y = 2
+            cur.append(r)
+            y += row_h(r[1])
+        chunks.append(cur)
         if t:
-            d["text"] = t
-            self.check_text(t, height + 4, ctx.where)
-        return d
+            last_y = (16 if title and len(chunks) == 1 else 2) + sum(row_h(r[1]) for r in chunks[-1])
+            if text_bottom(t, last_y + 4) > PAGE_BOTTOM:
+                chunks.append([])
+        pages = []
+        for n, chunk in enumerate(chunks):
+            titled = bool(title) and n == 0
+            is_last = n == len(chunks) - 1
+            if not chunk:
+                pages.append({"type": "text", "text": t})
+                continue
+            layout = tuple(len(o) for _, o in chunk)
+            name, height = self.ensure_machine_template(layout, titled)
+            d = {"type": f"{MODID}:{name}", "m": m.stack}
+            if titled:
+                d["title"] = title
+            for i, (inp, outs) in enumerate(chunk, 1):
+                d[f"i{i}"] = resolve(inp, ctx.where).stack
+                for j, o in enumerate(outs, 1):
+                    it = resolve(o, ctx.where)
+                    e.provides.append(it)
+                    d[f"o{i}_{j}"] = it.stack
+            if is_last and t:
+                d["text"] = t
+                self.check_text(t, height + 4, ctx.where)
+            pages.append(d)
+        return pages
 
     def page_image(self, e, args, title, text, ctx, first):
         imgs = [f"{MODID}:textures/gui/{self.id}/{a}" for a in args]

@@ -65,3 +65,11 @@
 @group coal_dust
 - ic2:dust#coal
 - ic2:crafting#coal_ball
+
+@group geothermal
+- te#geo_generator
+- te#semifluid_generator
+
+@group advanced_casing
+- ic2:resource#advanced_machine
+- ic2:crafting#advanced_circuit
