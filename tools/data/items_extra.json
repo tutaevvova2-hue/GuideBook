@@ -270,7 +270,7 @@
    "stack": "minecraft:clay"
   },
   "minecraft:clay_ball": {
-   "ru": "Глина",
+   "ru": "Комок глины",
    "stack": "minecraft:clay_ball"
   },
   "minecraft:clock": {
@@ -593,6 +593,10 @@
    "ru": "Стекло",
    "stack": "minecraft:glass"
   },
+  "minecraft:glass_bottle": {
+   "ru": "Стеклянный пузырёк",
+   "stack": "minecraft:glass_bottle"
+  },
   "minecraft:glass_pane": {
    "ru": "Стеклянная панель",
    "stack": "minecraft:glass_pane"
@@ -756,6 +760,10 @@
   "minecraft:iron_sword": {
    "ru": "Железный меч",
    "stack": "minecraft:iron_sword"
+  },
+  "minecraft:iron_trapdoor": {
+   "ru": "Железный люк",
+   "stack": "minecraft:iron_trapdoor"
   },
   "minecraft:item_frame": {
    "ru": "Рамка",

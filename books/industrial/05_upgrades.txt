@@ -76,7 +76,7 @@ unlock: workshop
 - Лишние ускорители при слабом питании только вредят: машина чаще стоит без энергии.
 
 @entry transformer_upgrade
-name: Улучшение «Трансформатор»
+name: Улучшение-трансформатор
 icon: ic2:upgrade#transformer
 sort: 2
 unlock: voltage
@@ -95,7 +95,7 @@ unlock: voltage
 !!Без него машина от сети выше своего уровня взорвётся!!.
 
 @entry energy_storage_upgrade
-name: Улучшение «Энергохранитель»
+name: Энергохранитель
 icon: ic2:upgrade#energy_storage
 sort: 3
 unlock: workshop

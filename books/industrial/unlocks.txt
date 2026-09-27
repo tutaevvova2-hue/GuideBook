@@ -91,3 +91,17 @@
 - ic2:fluid_cell
 - te#pump
 - te#geo_generator
+
+@group kinetic
+- te#kinetic_generator
+- te#wind_kinetic_generator
+- te#water_kinetic_generator
+- ic2:rotor_wood
+- ic2:crafting#iron_shaft
+- ic2:refractory_bricks
+
+@group steam
+- te#steam_generator
+- te#steam_kinetic_generator
+- ic2:crafting#steam_turbine_blade
+- ic2:crafting#copper_boiler

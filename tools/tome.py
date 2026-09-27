@@ -188,7 +188,7 @@ def resolve(ref, where="?", count=1):
         stack = 'ic2:fluid_cell' + suffix + '{Fluid:{FluidName:"%s",Amount:1000}}' % fl
         return Item(ref, stack, EXTRA["fluid_cell_names"].get(fl, "Капсула: " + fl), {"item": "ic2:fluid_cell"})
     if ref.startswith("ore:"):
-        name = ref[4:]
+        name = ref[4:].split("@")[0]
         stacks = []
         variants = IC2["oredict"].get(name, [])
         for v in variants:
