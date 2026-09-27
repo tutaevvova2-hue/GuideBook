@@ -1,0 +1,493 @@
+@category control
+name: Приборы и панели
+description: Информационные панели, наборы и карты-датчики, датчики температуры, сирены, счётчики энергии и УФСУ.
+icon: energycontrol:info_panel
+sort: 16
+
+@entry control_intro
+name: Приборы контроля
+icon: energycontrol:info_panel
+sort: 0
+unlock: machines
+
+== text
+Когда мастерская разрастается, бегать от накопителя к накопителю надоедает. ~Приборы контроля~ собирают сведения в одном месте:
+- *информационные панели* показывают заряд, баки, работу генераторов и реактора;
+- *датчики* подают сигнал красного камня, когда что-то пошло не так;
+- *сирены* поднимают тревогу;
+- *счётчики* меряют, сколько энергии прошло по проводу.
+
+== text | Как это устроено
+- Делаешь ~набор~ нужного вида.
+- ПКМ набором по машине, накопителю или баку — набор превращается в ~карту-датчик~ с координатами этого блока.
+- Кладёшь карту в панель — и панель показывает сведения о блоке.
+
+Всё начинается со [[control_parts|Сборщика наборов]] и крепкой нити.
+
+@entry control_parts
+name: Сборщик наборов
+icon: energycontrol:kit_assembler
+sort: 1
+unlock: machines
+
+== spotlight energycontrol:kit_assembler
+**Сборщик наборов** — станок для деталей приборов: схем, корпусов и копий наборов. В нём три входные ячейки: всё, что нужно для рецепта, кладётся туда разом.
+
+== grid energycontrol:kit_assembler
+ore:ingotIron minecraft:crafting_table ore:ingotIron
+ore:dustRedstone minecraft:chest ore:dustRedstone
+ore:ingotIron minecraft:furnace ore:ingotIron
+
+== text | Питание
+- Сборщик работает на НН, 5 EU за такт.
+- Энергию можно дать и без провода: аккумулятором или ~ведром лавы~ в ячейке энергии. Ведро даёт 2000 единиц.
+- [[transformer_upgrade|Улучшение-трансформатор]] вдвое ускоряет работу и поднимает допустимое напряжение на уровень.
+
+== machine energycontrol:kit_assembler | Рецепты
+ore:dustRedstone*2 + ore:ingotIron + minecraft:flint -> energycontrol:item_component:1
+ore:dustRedstone*2 + ore:ingotGold + energycontrol:item_component:1 -> energycontrol:item_component:0
+ore:ingotIron*4 + minecraft:heavy_weighted_pressure_plate + energycontrol:item_component:4*3 -> energycontrol:item_component:2
+ore:dustRedstone + ore:ingotIron + energycontrol:item_component:4 -> energycontrol:panel_toolkit
+
+== grid energycontrol:item_component:4*6
+minecraft:cactus|minecraft:vine minecraft:reeds _
+minecraft:reeds minecraft:cactus|minecraft:vine minecraft:reeds
+_ minecraft:reeds minecraft:cactus|minecraft:vine
+Крепкая нить: кактусы или лианы и сахарный тростник, шесть штук.
+
+== grid energycontrol:item_component:3
+energycontrol:item_component:4 ore:circuitBasic energycontrol:item_component:4
+_ ore:slabWood _
+_ _ _
+Радиопередатчик — сердце каждого набора.
+
+== text | Детали
+- *Базовая схема* и *Расширенная схема* годятся и вместо обычной и улучшенной электросхемы.
+- *Корпус механизма* — основа панелей, триггера и датчиков.
+- *Панельный инструмент* поворачивает и снимает блоки приборов.
+
+@entry kits
+name: Наборы и карты
+icon: energycontrol:item_kit:0
+sort: 2
+unlock: control
+
+== text
+Набор — заготовка карты. ПКМ набором по подходящему блоку превращает его в ~карту-датчик~ этого блока. Если блок не подходит, ничего не происходит.
+- *Набор для энергетического хранилища* — накопители, генераторы, всё, где есть заряд.
+- *Набор для счётчика энергии* — [[counters|энергосчётчики]].
+- *Набор для жидкостного хранилища* — баки и машины с баком.
+- *Улучш. набор для жидкостного хранилища* — все баки блока сразу.
+
+== text | Ещё наборы
+- *Набор с датчиком* (в нём улучшение «Энергохранитель») — генераторы всех видов, тепловые и кинетические, [[reactor|ядерный реактор]]: выработка, топливо, нагрев.
+- *Набор для удаленного переключения* — рычаг или кнопка.
+- *Набор для ванильных механизмов* — печь и зельеварка.
+- *Набор для инвентаря* — сундуки и любые хранилища.
+- *Набор для редстоун механизма* — сигнал красного камня у любого блока.
+
+== grid energycontrol:item_kit:0
+ore:dustRedstone energycontrol:item_component:3 _
+minecraft:paper ore:dyeRed _
+_ _ _
+Все наборы делаются одинаково: радиопередатчик, бумага, краситель своего цвета и деталь, которая говорит, что набор будет читать.
+
+== grid energycontrol:item_kit:4
+ic2:upgrade#energy_storage energycontrol:item_component:3 _
+minecraft:paper ore:dyeLightGray _
+_ _ _
+Набор для генераторов и реактора.
+
+== grid energycontrol:item_kit:2
+minecraft:bucket energycontrol:item_component:3 _
+minecraft:paper ore:dyeBlue _
+_ _ _
+
+== grid energycontrol:item_kit:3
+minecraft:bucket energycontrol:item_kit:2 minecraft:bucket
+_ _ _
+_ _ _
+
+== grid energycontrol:item_kit:1
+ore:circuitBasic energycontrol:item_component:3 _
+minecraft:paper ore:dyeOrange _
+_ _ _
+
+== grid energycontrol:item_kit:6
+minecraft:lever energycontrol:item_component:3 _
+minecraft:paper ore:dyeGray _
+_ _ _
+
+== grid energycontrol:item_kit:7
+ore:ingotIron energycontrol:item_component:3 _
+minecraft:paper ore:dyeGray _
+_ _ _
+
+== grid energycontrol:item_kit:8
+minecraft:chest energycontrol:item_component:3 _
+minecraft:paper ore:dyeGray _
+_ _ _
+
+== grid energycontrol:item_kit:9
+ore:dustRedstone energycontrol:item_component:3 _
+minecraft:paper ore:dyeGray _
+_ _ _
+
+== machine energycontrol:kit_assembler | Копия набора
+energycontrol:item_card:0 + energycontrol:item_component:4*2 + energycontrol:item_card:0 -> energycontrol:item_kit:0*2
+Две карты одного вида и две крепкие нити дают два чистых набора. Так поступают с любыми картами, если нужно перенастроить их на другие блоки.
+
+== text | Особые карты
+- *Карта-датчик для написания текста* — показывает на панели твой текст, строки задаются в окне панели.
+- *Карта-датчик со временем* — игровое время, можно в 24-часовом виде.
+
+Их делают сразу картами, без набора.
+
+== grid energycontrol:item_card:18
+_ energycontrol:item_component:4 _
+minecraft:paper ore:circuitBasic minecraft:paper
+_ energycontrol:item_component:4 _
+
+== grid energycontrol:item_card:19
+_ energycontrol:item_component:4 _
+minecraft:paper minecraft:clock minecraft:paper
+_ energycontrol:item_component:4 _
+
+== text | Массивы
+Карты-датчики энергии можно сложить на верстаке: от 2 до 16 карт в любых ячейках дают *Карту-датчик расположения массива с энергией*. Панель покажет каждый накопитель и общий итог.
+
+Так же складываются карты жидкости — в массив баков. Смешивать энергию и жидкость нельзя.
+
+@entry info_panel
+name: Информационная панель
+icon: energycontrol:info_panel
+sort: 3
+unlock: control
+
+== spotlight energycontrol:info_panel
+**Промышленная информационная панель** показывает сведения с одной карты-датчика.
+
+!!Панель работает, только когда на неё подан сигнал красного камня!!: поставь рядом рычаг или факел.
+
+== grid energycontrol:info_panel
+ore:paneGlassLime ore:paneGlassLime ore:paneGlassLime
+ore:circuitBasic energycontrol:item_component:2 ore:circuitBasic
+ore:dyeBlack ore:dustRedstone ore:dyeBlack
+
+== text | Окно панели
+- Ячейка ~карты~.
+- Ячейка [[panel_upgrades|Усиления сигнала]].
+- Ячейка ~Цветности~ — свой цвет фона и текста.
+- Ячейка ~Сенсорного экрана~.
+
+Флажки в окне выбирают, какие строки показывать: заряд, ёмкость, свободное место, процент и другие. Сведения обновляются раз в секунду.
+
+== text | Дальность
+Без улучшений карта читает блок не дальше 8 блоков от панели по каждой оси. Каждое Усиление сигнала удваивает дальность: 16, 32, 64… до 1024 блоков при семи улучшениях.
+
+Если блок дальше, панель пишет «Вне диапазона».
+
+== spotlight energycontrol:info_panel_extender
+**Расширитель информационной панели** увеличивает экран. Ставь расширители вплотную к панели, в ту же плоскость и той же стороной: они сливаются с ней в один большой экран, до двадцати блоков в каждую сторону.
+
+Экран должен оставаться прямоугольником.
+
+== grid energycontrol:info_panel_extender
+ore:paneGlassLime ore:paneGlassLime ore:paneGlassLime
+ore:plankWood ore:dustRedstone ore:plankWood
+ore:plankWood ore:plankWood ore:plankWood
+
+== shot control_panel.png | Панель в работе
+Большой экран из информационной панели и нескольких расширителей, на экране — сведения о заряде МФЭ. Рядом виден рычаг, подающий сигнал.
+--
+Панель с расширителями и картой накопителя.
+
+@entry advanced_panel
+name: Продвинутая панель
+icon: energycontrol:info_panel_advanced
+sort: 4
+unlock: control
+
+== spotlight energycontrol:info_panel_advanced
+**Продвинутая информационная панель** держит три карты сразу и показывает их на одном экране.
+
+Цвет фона и текста настраивается без улучшения, а экран можно наклонить и сделать тоньше — кнопками в окне.
+
+== grid energycontrol:info_panel_advanced
+ore:paneGlassCyan ore:paneGlassCyan ore:paneGlassCyan
+energycontrol:item_upgrade:0 energycontrol:info_panel energycontrol:item_upgrade:1
+minecraft:coal:1 ore:circuitAdvanced minecraft:coal:1
+
+== text | Примечания
+- Как и обычной, продвинутой панели нужен сигнал красного камня.
+- Усиление сигнала кладётся в отдельную ячейку и действует на все три карты.
+- Экран наращивается своими расширителями, обычные к ней не подходят.
+
+== grid energycontrol:info_panel_advanced_extender
+ore:paneGlassCyan ore:paneGlassCyan ore:paneGlassCyan
+minecraft:coal:1 energycontrol:info_panel_extender minecraft:coal:1
+minecraft:coal:1 minecraft:coal:1 minecraft:coal:1
+Расширитель продвинутой панели.
+
+== spotlight energycontrol:holo_panel
+**Голографическая информационная панель** рисует сведения в воздухе, над собой. Расширители у неё свои.
+
+*Расширенные схемы* в особой ячейке поднимают голограмму выше.
+
+== grid energycontrol:holo_panel
+_ energycontrol:item_component:4 _
+ore:dustRedstone energycontrol:info_panel ore:dustRedstone
+_ energycontrol:item_component:4 _
+
+== grid energycontrol:holo_panel_extender
+_ energycontrol:item_component:4 _
+ore:dustRedstone energycontrol:info_panel_extender ore:dustRedstone
+_ energycontrol:item_component:4 _
+Расширитель голографической панели.
+
+@entry panel_upgrades
+name: Улучшения панелей
+icon: energycontrol:item_upgrade:0
+sort: 5
+unlock: control
+
+== spotlight energycontrol:item_upgrade:0
+**Улучшение «Усиление сигнала»** удваивает дальность карты. Стопка из семи улучшений даёт 1024 блока.
+
+Годится для панелей, дистанционного датчика температуры, триггера и портативной панели.
+
+== grid energycontrol:item_upgrade:0
+ore:ingotIron ore:ingotIron ore:ingotIron
+energycontrol:item_component:4 energycontrol:item_component:3 energycontrol:item_component:4
+_ _ _
+
+== spotlight energycontrol:item_upgrade:1
+**Улучшение «Цветность»** даёт выбрать в окне панели цвет фона и цвет текста.
+
+== grid energycontrol:item_upgrade:1
+ore:dyeRed ore:dyeYellow ore:dyeGreen
+ore:dyeWhite ore:circuitBasic ore:dyeMagenta
+ore:dyeBlack ore:dyeCyan ore:dyeBlue
+
+== spotlight energycontrol:item_upgrade:2
+**Улучшение «Сенсорный экран»** позволяет управлять с панели. Положи в неё *Карту-датчик удаленного переключения* от рычага или кнопки.
+
+Теперь Alt+ПКМ по экрану переключает тот рычаг, хоть он и далеко.
+
+== grid energycontrol:item_upgrade:2
+_ ore:dustRedstone _
+energycontrol:item_component:4 ore:circuitBasic energycontrol:item_component:4
+_ minecraft:coal:1 _
+
+@entry portable_panel
+name: Портативная панель
+icon: energycontrol:portable_panel
+sort: 6
+unlock: control
+
+== spotlight energycontrol:portable_panel
+**Портативная панель** — информационная панель в руке. ПКМ открывает её: в ней ячейка карты и ячейка Усиления сигнала.
+
+Сигнал красного камня ей не нужен.
+
+== grid energycontrol:portable_panel
+energycontrol:item_component:4 _ _
+energycontrol:item_component:3 energycontrol:info_panel_extender energycontrol:item_component:3
+energycontrol:item_upgrade:0 minecraft:coal:1 minecraft:coal:1
+
+== spotlight energycontrol:card_holder
+**Кардхолдер** хранит до 54 карт-датчиков. ПКМ открывает его. Удобно носить с собой карты для портативной панели.
+
+== grid energycontrol:card_holder
+_ ore:leather _
+ore:leather minecraft:chest ore:leather
+_ ore:leather _
+
+@entry thermal_monitors
+name: Датчики температуры
+icon: energycontrol:thermal_monitor
+sort: 7
+unlock: reactor
+
+== spotlight energycontrol:thermal_monitor
+**Датчик температуры** ставится вплотную к [[reactor|реактору]] или его камере. В окне задаёшь порог нагрева: как только реактор нагреется до него, датчик подаёт сигнал красного камня.
+
+Кнопка инверсии делает наоборот: сигнал есть, пока реактор холоднее порога.
+
+== grid energycontrol:thermal_monitor
+ore:ingotGold ore:ingotGold ore:ingotGold
+ore:ingotGold ore:circuitAdvanced ore:ingotGold
+ore:ingotGold ore:dustRedstone ore:ingotGold
+
+== text | Защита реактора
+Самая надёжная защита:
+- датчик температуры на реакторе;
+- порог — на уровне, при котором реактор ещё цел;
+- инверсия включена, а сигнал датчика и есть сигнал, который держит реактор включённым.
+
+Нагрелся реактор — сигнал пропал — реактор заглох. Сам, без тебя.
+
+== spotlight energycontrol:remote_thermo
+**Дистанционный датчик температуры** делает то же, но издалека. В него кладут карту с реактора: её даёт набор с датчиком для генераторов и реактора. Дальность — как у панелей, с Усилением сигнала больше.
+
+== grid energycontrol:remote_thermo
+ore:ingotIron energycontrol:item_component:3 ore:ingotIron
+ore:ingotIron energycontrol:item_component:2 ore:ingotIron
+ore:ingotIron energycontrol:thermal_monitor ore:ingotIron
+
+== spotlight energycontrol:thermometer
+**Термометр**: ПКМ по реактору — в чате появится его нагрев. Хватает примерно на сотню замеров.
+
+*Цифровой термометр* работает от заряда, 12 000 EU, и сверх нагрева показывает два порога: когда реактор начнёт испарять воду вокруг и когда начнёт плавить блоки.
+
+== grid energycontrol:thermometer
+ore:ingotIron ore:blockGlass _
+ore:blockGlass minecraft:water_bucket ore:blockGlass
+_ ore:blockGlass ore:blockGlass
+
+== grid energycontrol:thermometer_digital
+ore:itemRubber ore:plateIron _
+ore:plateIron energycontrol:thermometer ore:plateIron
+_ ore:plateIron ic2:crafting#small_power_unit
+
+@entry alarms
+name: Сирены и светильники
+icon: energycontrol:industrial_alarm
+sort: 8
+unlock: control
+
+== spotlight energycontrol:howler_alarm
+**Сирена «Ревун»** воет, пока на неё подан сигнал красного камня. В окне выбираются звук (три на выбор) и дальность, по умолчанию 64 блока.
+
+Соедини её с датчиком температуры или триггером — и узнаешь о беде издалека.
+
+== grid energycontrol:howler_alarm
+minecraft:noteblock minecraft:noteblock minecraft:noteblock
+ore:ingotIron ore:circuitBasic ore:ingotIron
+ore:ingotIron ore:ingotIron ore:ingotIron
+
+== spotlight energycontrol:industrial_alarm
+**Промышленная сирена** к звуку добавляет оранжевый проблесковый свет.
+
+== grid energycontrol:industrial_alarm
+energycontrol:item_component:4 energycontrol:block_light:2 energycontrol:item_component:4
+energycontrol:item_component:4 energycontrol:howler_alarm energycontrol:item_component:4
+_ _ _
+
+== spotlight energycontrol:block_light:0
+*Белый* и *Оранжевый светильники* горят, пока на них подан сигнал красного камня. Хороши для табло: «реактор работает», «накопитель полон».
+
+== grid energycontrol:block_light:0
+ore:paneGlass ore:paneGlass ore:paneGlass
+ore:paneGlass ore:dyeWhite ore:paneGlass
+ore:paneGlass minecraft:redstone_lamp ore:paneGlass
+С оранжевым красителем получится оранжевый светильник.
+
+== spotlight energycontrol:timer
+**Таймер** отсчитывает заданное время, в секундах или тактах. Пока идёт отсчёт, он подаёт сигнал красного камня, а с инверсией — наоборот, молчит до конца отсчёта.
+
+== grid energycontrol:timer
+ore:ingotIron minecraft:clock ore:ingotIron
+ore:ingotIron ore:circuitBasic ore:ingotIron
+_ ore:dustRedstone _
+
+@entry counters
+name: Триггер и счётчики
+icon: energycontrol:range_trigger
+sort: 9
+unlock: voltage
+
+== spotlight energycontrol:range_trigger
+**Дистанционный триггер** читает карту энергии или жидкости и подаёт сигнал красного камня, пока значение лежит между двумя заданными границами.
+
+Пример: сигнал, пока в МФЭ меньше половины заряда, — и резервный генератор включается сам.
+
+== grid energycontrol:range_trigger
+ore:ingotIron energycontrol:item_component:3 ore:ingotIron
+ore:circuitAdvanced energycontrol:item_component:2 ore:circuitAdvanced
+_ ore:dustRedstone _
+
+== text | Настройка триггера
+- В окне две границы, нижняя и верхняя.
+- Кнопка инверсии: сигнал, наоборот, когда значение за границами.
+- Ячейка для Усиления сигнала, как у панели.
+
+Цвет лампы на триггере показывает, внутри значение или снаружи.
+
+== spotlight energycontrol:energy_counter
+**Энергосчётчик** ставится в разрыв провода. Энергия входит с пяти сторон, выходит с шестой, лицевой, и счётчик копит, сколько EU прошло. Кнопка в окне обнуляет его.
+
+*Стационарный энергосчётчик* показывает среднюю мощность, EU за такт, за последние 1–10 секунд.
+
+== grid energycontrol:energy_counter
+_ _ _
+ore:plateIron ore:circuitAdvanced ore:plateIron
+ic2:cable#type:gold,insulation:0 te#mv_transformer ic2:cable#type:gold,insulation:0
+
+== grid energycontrol:average_counter
+_ _ _
+ore:plateLead ore:circuitAdvanced ore:plateLead
+ic2:cable#type:gold,insulation:0 te#mv_transformer ic2:cable#type:gold,insulation:0
+Стационарный энергосчётчик.
+
+== text | Напряжение
+Без улучшений счётчики пропускают только НН, 32 EU/t. Каждое [[transformer_upgrade|Улучшение-трансформатор]] в ячейке поднимает допустимый уровень на ступень.
+
+Показания счётчика можно вывести на панель *Набором для счётчика энергии*.
+
+@entry afsu
+name: УФСУ
+icon: energycontrol:afsu
+sort: 10
+unlock: iridium
+
+== spotlight energycontrol:afsu
+**УФСУ** — накопитель следующей ступени после [[storage|МФСУ]]: 400 000 000 EU. Принимает и выдаёт пакеты пятого уровня, до 8192 EU/t.
+
+Как и другие накопители, заряжает предметы и управляется сигналом красного камня.
+
+== grid energycontrol:afb
+ic2:cable#type:glass,insulation:0 ic2:crafting#iridium ic2:cable#type:glass,insulation:0
+ic2:crafting#iridium ic2:fluid_cell#ic2uu_matter ic2:crafting#iridium
+ic2:cable#type:glass,insulation:0 ic2:crafting#iridium ic2:cable#type:glass,insulation:0
+*УФА* — кристалл на 100 000 000 EU, пятого уровня. Зарядить его можно только в УФСУ.
+
+== grid energycontrol:afsu
+te#mfsu ic2:cable#type:glass,insulation:0 te#mfsu
+ic2:crafting#iridium energycontrol:afb ic2:crafting#iridium
+te#mfsu ic2:cable#type:glass,insulation:0 te#mfsu
+
+== grid energycontrol:afsu_upgrade_kit
+ic2:upgrade_kit#mfsu ic2:cable#type:glass,insulation:0 ic2:upgrade_kit#mfsu
+ic2:crafting#iridium energycontrol:afb ic2:crafting#iridium
+ic2:upgrade_kit#mfsu ic2:cable#type:glass,insulation:0 ic2:upgrade_kit#mfsu
+*Набор улучшения УФСУ*: ПКМ по стоящей МФСУ превращает её в УФСУ, не разбирая.
+
+== text | Кому нужна УФСУ
+Пятый уровень напряжения выдержат только провода с тройной изоляцией и трансформатор СВН. Прежде чем подключать УФСУ к сети, поставь трансформатор и снизь напряжение до того, что выдержат машины.
+
+@entry seed_machines
+name: Анализатор агрокультур
+icon: energycontrol:seed_analyzer
+sort: 11
+unlock: crops
+
+== spotlight energycontrol:seed_analyzer
+**Анализатор агрокультур** делает работу [[analyzer|агроанализатора]] сам. Положи мешок с семенами во входную ячейку: за один проход анализатор изучает мешок на одну ступень и кладёт его в выходную.
+
+Работает на НН, 5 EU за такт, запас 10 000 EU. Каждая следующая ступень анализа дороже.
+
+== grid energycontrol:seed_analyzer
+_ ic2:cropnalyzer _
+ore:plankWood energycontrol:item_component:2 ore:plankWood
+ore:plankWood ore:circuitBasic ore:plankWood
+
+== spotlight energycontrol:seed_library
+**Библиотека агрокультур** — хранилище для мешков с семенами. В окне их можно отбирать по растению и характеристикам: Рост, Урожайность, Стойкость.
+
+Вместе с анализатором и воронками получается целая селекционная станция.
+
+== grid energycontrol:seed_library
+ore:blockGlass ore:blockGlass ore:blockGlass
+minecraft:chest ore:circuitAdvanced minecraft:chest
+minecraft:chest energycontrol:seed_analyzer minecraft:chest

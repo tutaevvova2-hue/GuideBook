@@ -93,6 +93,234 @@
   ]
  },
  "items": {
+  "energycontrol:afb": {
+   "ru": "УФА",
+   "stack": "energycontrol:afb"
+  },
+  "energycontrol:afsu": {
+   "ru": "УФСУ",
+   "stack": "energycontrol:afsu"
+  },
+  "energycontrol:afsu_upgrade_kit": {
+   "ru": "Набор улучшения УФСУ",
+   "stack": "energycontrol:afsu_upgrade_kit"
+  },
+  "energycontrol:average_counter": {
+   "ru": "Стационарный энергосчётчик",
+   "stack": "energycontrol:average_counter"
+  },
+  "energycontrol:block_light:0": {
+   "ru": "Белый светильник",
+   "stack": "energycontrol:block_light:0"
+  },
+  "energycontrol:block_light:2": {
+   "ru": "Оранжевый светильник",
+   "stack": "energycontrol:block_light:2"
+  },
+  "energycontrol:card_holder": {
+   "ru": "Кардхолдер",
+   "stack": "energycontrol:card_holder"
+  },
+  "energycontrol:energy_counter": {
+   "ru": "Энергосчётчик",
+   "stack": "energycontrol:energy_counter"
+  },
+  "energycontrol:holo_panel": {
+   "ru": "Голографическая информационная панель",
+   "stack": "energycontrol:holo_panel"
+  },
+  "energycontrol:holo_panel_extender": {
+   "ru": "Расширитель голографической панели",
+   "stack": "energycontrol:holo_panel_extender"
+  },
+  "energycontrol:howler_alarm": {
+   "ru": "Сирена «Ревун»",
+   "stack": "energycontrol:howler_alarm"
+  },
+  "energycontrol:industrial_alarm": {
+   "ru": "Промышленная сирена",
+   "stack": "energycontrol:industrial_alarm"
+  },
+  "energycontrol:info_panel": {
+   "ru": "Промышленная информационная панель",
+   "stack": "energycontrol:info_panel"
+  },
+  "energycontrol:info_panel_advanced": {
+   "ru": "Продвинутая информационная панель",
+   "stack": "energycontrol:info_panel_advanced"
+  },
+  "energycontrol:info_panel_advanced_extender": {
+   "ru": "Расширитель продвинутой панели",
+   "stack": "energycontrol:info_panel_advanced_extender"
+  },
+  "energycontrol:info_panel_extender": {
+   "ru": "Расширитель информационной панели",
+   "stack": "energycontrol:info_panel_extender"
+  },
+  "energycontrol:item_card:0": {
+   "ru": "Карта-датчик расположения энергии",
+   "stack": "energycontrol:item_card:0"
+  },
+  "energycontrol:item_card:1": {
+   "ru": "Карта-датчик расположения счётчика",
+   "stack": "energycontrol:item_card:1"
+  },
+  "energycontrol:item_card:10": {
+   "ru": "Карта-датчик расположения массива с энергией",
+   "stack": "energycontrol:item_card:10"
+  },
+  "energycontrol:item_card:11": {
+   "ru": "Карта-датчик расположения массива жидкости",
+   "stack": "energycontrol:item_card:11"
+  },
+  "energycontrol:item_card:13": {
+   "ru": "Карта-датчик удаленного переключения",
+   "stack": "energycontrol:item_card:13"
+  },
+  "energycontrol:item_card:14": {
+   "ru": "Карта-датчик расположения ванильных механизмов",
+   "stack": "energycontrol:item_card:14"
+  },
+  "energycontrol:item_card:15": {
+   "ru": "Карта-датчик расположения инвентаря",
+   "stack": "energycontrol:item_card:15"
+  },
+  "energycontrol:item_card:16": {
+   "ru": "Карта-датчик расположения редстоун механизма",
+   "stack": "energycontrol:item_card:16"
+  },
+  "energycontrol:item_card:18": {
+   "ru": "Карта-датчик для написания текста",
+   "stack": "energycontrol:item_card:18"
+  },
+  "energycontrol:item_card:19": {
+   "ru": "Карта-датчик со временем",
+   "stack": "energycontrol:item_card:19"
+  },
+  "energycontrol:item_card:2": {
+   "ru": "Карта-датчик расположения жидкости",
+   "stack": "energycontrol:item_card:2"
+  },
+  "energycontrol:item_card:3": {
+   "ru": "Улучш. карта-датчик расположения жидкости",
+   "stack": "energycontrol:item_card:3"
+  },
+  "energycontrol:item_card:4": {
+   "ru": "Карта-датчик для IC2",
+   "stack": "energycontrol:item_card:4"
+  },
+  "energycontrol:item_component:0": {
+   "ru": "Расширенная схема",
+   "stack": "energycontrol:item_component:0"
+  },
+  "energycontrol:item_component:1": {
+   "ru": "Базовая схема",
+   "stack": "energycontrol:item_component:1"
+  },
+  "energycontrol:item_component:2": {
+   "ru": "Корпус механизма",
+   "stack": "energycontrol:item_component:2"
+  },
+  "energycontrol:item_component:3": {
+   "ru": "Радиопередатчик",
+   "stack": "energycontrol:item_component:3"
+  },
+  "energycontrol:item_component:4": {
+   "ru": "Крепкая нить",
+   "stack": "energycontrol:item_component:4"
+  },
+  "energycontrol:item_kit:0": {
+   "ru": "Набор для энергетического хранилища",
+   "stack": "energycontrol:item_kit:0"
+  },
+  "energycontrol:item_kit:1": {
+   "ru": "Набор для счётчика энергии",
+   "stack": "energycontrol:item_kit:1"
+  },
+  "energycontrol:item_kit:2": {
+   "ru": "Набор для жидкостного хранилища",
+   "stack": "energycontrol:item_kit:2"
+  },
+  "energycontrol:item_kit:3": {
+   "ru": "Улучш. набор для жидкостного хранилища",
+   "stack": "energycontrol:item_kit:3"
+  },
+  "energycontrol:item_kit:4": {
+   "ru": "Набор с датчиком для IC2",
+   "stack": "energycontrol:item_kit:4"
+  },
+  "energycontrol:item_kit:6": {
+   "ru": "Набор для удаленного переключения",
+   "stack": "energycontrol:item_kit:6"
+  },
+  "energycontrol:item_kit:7": {
+   "ru": "Набор для ванильных механизмов",
+   "stack": "energycontrol:item_kit:7"
+  },
+  "energycontrol:item_kit:8": {
+   "ru": "Набор для инвентаря",
+   "stack": "energycontrol:item_kit:8"
+  },
+  "energycontrol:item_kit:9": {
+   "ru": "Набор для редстоун механизма",
+   "stack": "energycontrol:item_kit:9"
+  },
+  "energycontrol:item_upgrade:0": {
+   "ru": "Улучшение «Усиление сигнала»",
+   "stack": "energycontrol:item_upgrade:0"
+  },
+  "energycontrol:item_upgrade:1": {
+   "ru": "Улучшение «Цветность»",
+   "stack": "energycontrol:item_upgrade:1"
+  },
+  "energycontrol:item_upgrade:2": {
+   "ru": "Улучшение «Сенсорный экран»",
+   "stack": "energycontrol:item_upgrade:2"
+  },
+  "energycontrol:kit_assembler": {
+   "ru": "Сборщик наборов",
+   "stack": "energycontrol:kit_assembler"
+  },
+  "energycontrol:panel_toolkit": {
+   "ru": "Панельный инструмент",
+   "stack": "energycontrol:panel_toolkit"
+  },
+  "energycontrol:portable_panel": {
+   "ru": "Портативная панель",
+   "stack": "energycontrol:portable_panel"
+  },
+  "energycontrol:range_trigger": {
+   "ru": "Дистанционный триггер",
+   "stack": "energycontrol:range_trigger"
+  },
+  "energycontrol:remote_thermo": {
+   "ru": "Дистанционный датчик температуры",
+   "stack": "energycontrol:remote_thermo"
+  },
+  "energycontrol:seed_analyzer": {
+   "ru": "Анализатор агрокультур",
+   "stack": "energycontrol:seed_analyzer"
+  },
+  "energycontrol:seed_library": {
+   "ru": "Библиотека агрокультур",
+   "stack": "energycontrol:seed_library"
+  },
+  "energycontrol:thermal_monitor": {
+   "ru": "Датчик температуры",
+   "stack": "energycontrol:thermal_monitor"
+  },
+  "energycontrol:thermometer": {
+   "ru": "Термометр",
+   "stack": "energycontrol:thermometer"
+  },
+  "energycontrol:thermometer_digital": {
+   "ru": "Цифровой термометр",
+   "stack": "energycontrol:thermometer_digital"
+  },
+  "energycontrol:timer": {
+   "ru": "Таймер",
+   "stack": "energycontrol:timer"
+  },
   "gravisuite:advancedchainsaw": {
    "ru": "Улучшенная цепная пила",
    "stack": "gravisuite:advancedchainsaw"
@@ -753,6 +981,10 @@
    "ru": "Порох",
    "stack": "minecraft:gunpowder"
   },
+  "minecraft:heavy_weighted_pressure_plate": {
+   "ru": "Большегрузная весовая пластина",
+   "stack": "minecraft:heavy_weighted_pressure_plate"
+  },
   "minecraft:hopper": {
    "ru": "Воронка",
    "stack": "minecraft:hopper"
@@ -989,6 +1221,10 @@
    "ru": "Незеритовый кирпич",
    "stack": "minecraft:netherbrick"
   },
+  "minecraft:noteblock": {
+   "ru": "Нотный блок",
+   "stack": "minecraft:noteblock"
+  },
   "minecraft:observer": {
    "ru": "Наблюдатель",
    "stack": "minecraft:observer"
@@ -1185,6 +1421,10 @@
    "ru": "Редстоуновый блок",
    "stack": "minecraft:redstone_block"
   },
+  "minecraft:redstone_lamp": {
+   "ru": "Редстоуновый фонарь",
+   "stack": "minecraft:redstone_lamp"
+  },
   "minecraft:redstone_ore": {
    "ru": "Редстоуновая руда",
    "stack": "minecraft:redstone_ore"
@@ -1273,6 +1513,14 @@
    "ru": "Еловая дверь",
    "stack": "minecraft:spruce_door"
   },
+  "minecraft:stained_glass_pane:5": {
+   "ru": "Лаймовая стеклянная панель",
+   "stack": "minecraft:stained_glass_pane:5"
+  },
+  "minecraft:stained_glass_pane:9": {
+   "ru": "Бирюзовая стеклянная панель",
+   "stack": "minecraft:stained_glass_pane:9"
+  },
   "minecraft:stick": {
    "ru": "Палка",
    "stack": "minecraft:stick"
@@ -1288,6 +1536,10 @@
   "minecraft:stone_axe": {
    "ru": "Каменный топор",
    "stack": "minecraft:stone_axe"
+  },
+  "minecraft:stone_button": {
+   "ru": "Кнопка",
+   "stack": "minecraft:stone_button"
   },
   "minecraft:stone_hoe": {
    "ru": "Каменная мотыга",
@@ -1381,6 +1633,10 @@
    "ru": "Деревянный топор",
    "stack": "minecraft:wooden_axe"
   },
+  "minecraft:wooden_button": {
+   "ru": "Кнопка",
+   "stack": "minecraft:wooden_button"
+  },
   "minecraft:wooden_door": {
    "ru": "Дубовая дверь",
    "stack": "minecraft:wooden_door"
@@ -1400,6 +1656,10 @@
   "minecraft:wooden_shovel": {
    "ru": "Деревянная лопата",
    "stack": "minecraft:wooden_shovel"
+  },
+  "minecraft:wooden_slab": {
+   "ru": "Дубовая плита",
+   "stack": "minecraft:wooden_slab"
   },
   "minecraft:wooden_sword": {
    "ru": "Деревянный меч",
@@ -1443,6 +1703,7 @@
   "plateCopper": "Медная пластина",
   "plateIron": "Железная пластина",
   "plateTin": "Оловянная пластина",
+  "slabWood": "Деревянная плита",
   "stickWood": "Палка",
   "stone": "Камень",
   "treeLeaves": "Листва",
@@ -1483,6 +1744,12 @@
   "chestWood": [
    "minecraft:chest"
   ],
+  "circuitAdvanced": [
+   "energycontrol:item_component:0"
+  ],
+  "circuitBasic": [
+   "energycontrol:item_component:1"
+  ],
   "cobblestone": [
    "minecraft:cobblestone"
   ],
@@ -1504,8 +1771,35 @@
   "dyeBlue": [
    "minecraft:dye:4"
   ],
+  "dyeCyan": [
+   "minecraft:dye:6"
+  ],
+  "dyeGray": [
+   "minecraft:dye:8"
+  ],
+  "dyeGreen": [
+   "minecraft:dye:2"
+  ],
+  "dyeLightGray": [
+   "minecraft:dye:7"
+  ],
+  "dyeLime": [
+   "minecraft:dye:10"
+  ],
+  "dyeMagenta": [
+   "minecraft:dye:13"
+  ],
+  "dyeOrange": [
+   "minecraft:dye:14"
+  ],
+  "dyeRed": [
+   "minecraft:dye:1"
+  ],
   "dyeWhite": [
    "minecraft:dye:15"
+  ],
+  "dyeYellow": [
+   "minecraft:dye:11"
   ],
   "egg": [
    "minecraft:egg"
@@ -1593,6 +1887,12 @@
   "paneGlass": [
    "minecraft:glass_pane"
   ],
+  "paneGlassCyan": [
+   "minecraft:stained_glass_pane:9"
+  ],
+  "paneGlassLime": [
+   "minecraft:stained_glass_pane:5"
+  ],
   "plankWood": [
    "minecraft:planks:0",
    "minecraft:planks:1",
@@ -1606,6 +1906,14 @@
   ],
   "sand": [
    "minecraft:sand"
+  ],
+  "slabWood": [
+   "minecraft:wooden_slab:0",
+   "minecraft:wooden_slab:1",
+   "minecraft:wooden_slab:2",
+   "minecraft:wooden_slab:3",
+   "minecraft:wooden_slab:4",
+   "minecraft:wooden_slab:5"
   ],
   "slimeball": [
    "minecraft:slime_ball"

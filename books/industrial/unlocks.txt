@@ -167,3 +167,9 @@
 - gravisuite:advancedchainsaw
 - gravisuite:gravitool
 
+
+@group control
+- energycontrol:kit_assembler
+- energycontrol:item_component:4
+- energycontrol:item_component:3
+- energycontrol:info_panel

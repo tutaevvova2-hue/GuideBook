@@ -777,13 +777,18 @@ class Book:
             if "->" in ln:
                 left, right = ln.split("->", 1)
                 outs = right.split()
-                rows.append((left.strip(), outs))
+                ins = [x.strip() for x in left.split(" + ")]
+                if len(ins) > 1 and len(outs) > 1:
+                    err(ctx.where, "строка с несколькими входами может иметь только один выход")
+                rows.append((ins if len(ins) > 1 else left.strip(), outs))
             elif ln.strip() or cap:
                 cap.append(ln)
         if not rows:
             err(ctx.where, "у страницы machine нет строк рецептов")
             return None
         for inp, outs in rows:
+            if isinstance(inp, list):
+                continue  # несколько входов — у машин из ini таких рецептов нет
             ok = machine_recipe_exists(m.ref, inp, outs)
             if ok is False:
                 warn(ctx.where, f"в рецептах {m.ref} нет строки {inp} -> {' '.join(outs)}")
@@ -812,13 +817,17 @@ class Book:
             if not chunk:
                 pages.append({"type": "text", "text": t})
                 continue
-            layout = tuple(len(o) for _, o in chunk)
+            layout = tuple(f"x{len(i)}" if isinstance(i, list) else len(o) for i, o in chunk)
             name, height = self.ensure_machine_template(layout, titled)
             d = {"type": f"{MODID}:{name}", "m": m.stack}
             if titled:
                 d["title"] = title
             for i, (inp, outs) in enumerate(chunk, 1):
-                d[f"i{i}"] = resolve(inp, ctx.where).stack
+                if isinstance(inp, list):
+                    for k, x in enumerate(inp, 1):
+                        d[f"i{i}_{k}"] = resolve(x, ctx.where).stack
+                else:
+                    d[f"i{i}"] = resolve(inp, ctx.where).stack
                 for j, o in enumerate(outs, 1):
                     it = resolve(o, ctx.where)
                     e.provides.append(it)
@@ -979,7 +988,18 @@ class Book:
                     "height": 9, "texture_width": 128, "texture_height": 128}
 
         for r, n in enumerate(layout, 1):
-            if n == 1:
+            if isinstance(n, str):
+                # [вход1][вход2][вход3] -> [выход]; машина показана заголовком или соседней страницей
+                k = int(n[1:])
+                x = 0
+                for j in range(1, k + 1):
+                    comps += [frame(x, y), {"type": "item", "item": f"#i{r}_{j}", "x": x + 4, "y": y + 4,
+                                            "guard": f"#i{r}_{j}"}]
+                    x += 26
+                comps += [arrow(x, y + 8), frame(x + 14, y),
+                          {"type": "item", "item": f"#o{r}_1", "x": x + 18, "y": y + 4}]
+                y += 28
+            elif n == 1:
                 # [вход] -> машина -> [выход], ширина 100, отступ 8
                 comps += [frame(8, y), {"type": "item", "item": f"#i{r}", "x": 12, "y": y + 4},
                           arrow(36, y + 8), {"type": "item", "item": "#m", "x": 50, "y": y + 4},
