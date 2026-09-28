@@ -2,7 +2,7 @@
   {
     "modid": "tomes",
     "name": "Tomes",
-    "version": "1.1.2",
+    "version": "1.1.3",
     "mcversion": "1.12.2",
     "description": "Книги-справочники для Patchouli.",
     "authorList": [
