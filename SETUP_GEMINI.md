@@ -46,3 +46,10 @@ gemini
 - После главы проверяй книгу в игре. Если что-то не так — опиши проблему CLI или пришли скриншот (его можно перетащить в окно терминала).
 - Команда `/clear` очищает переписку, если помощник запутался. Правила из GEMINI.md он перечитает сам.
 - Сохранить работу на GitHub: подключи репозиторий один раз (`git remote set-url origin https://github.com/tutaevvova2-hue/GuideBook`), потом `git push`.
+
+## Проще всего: в облаке (GitHub Codespaces), без установки на Windows
+1. Открой репозиторий на GitHub → зелёная кнопка **Code** → вкладка **Codespaces** → **Create codespace** на ветке `claude/happy-brown-u5fbmc`.
+2. Подожди несколько минут: Python, Java и Gemini CLI поставятся сами, в конце проверка покажет `OK`.
+3. В терминале внизу набери `gemini`, войди через Google (или задай ключ из https://aistudio.google.com/apikey командой `export GEMINI_API_KEY=...`).
+4. Пиши задания как обычно. Готовый `dist/Tomes-*.jar` скачай: правый клик по файлу → **Download**.
+5. Изменения коммить и делай `git push` прямо из терминала. Остановленный codespace не расходует часы.
