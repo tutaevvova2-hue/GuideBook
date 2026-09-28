@@ -13,6 +13,12 @@ import re
 import shutil
 import subprocess
 import sys
+
+try:  # консоль Windows: русский текст без ошибок кодировки
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+except AttributeError:
+    pass
 import zipfile
 
 ROOT = os.path.dirname(os.path.abspath(__file__))

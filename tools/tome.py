@@ -17,6 +17,12 @@ import re
 import struct
 import sys
 
+try:  # консоль Windows: русский текст без ошибок кодировки
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+except AttributeError:
+    pass
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 BOOKS = os.path.join(ROOT, "books")
