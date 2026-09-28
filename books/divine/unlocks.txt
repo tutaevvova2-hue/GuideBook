@@ -1,0 +1,10 @@
+# Группы открытия статей книги «Странник меж мирами».
+
+@group stones
+- divinerpg:jungle_stone
+- divinerpg:terran_stone
+- divinerpg:corrupted_stone
+- divinerpg:molten_stone
+- divinerpg:ender_stone
+- divinerpg:hellstone_ingot
+- divinerpg:divine_shards

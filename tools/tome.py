@@ -33,6 +33,15 @@ def load_json(path):
 
 IC2 = load_json(os.path.join(DATA, "ic2.json"))
 EXTRA = load_json(os.path.join(DATA, "items_extra.json"))  # ванильные и прочие предметы
+# Данные других модов (tools/moddata.py): названия и рецепты верстака
+MODREC = {}
+for _fn in sorted(os.listdir(DATA)):
+    if _fn.startswith("mod_") and _fn.endswith(".json"):
+        _d = load_json(os.path.join(DATA, _fn))
+        for _k, _v in _d["items"].items():
+            EXTRA["items"].setdefault(_k, _v)
+        for _k, _v in _d["recipes"].items():
+            MODREC.setdefault(_k, []).extend(_v)
 GLYPHS = open(os.path.join(DATA, "glyph_sizes.bin"), "rb").read()
 
 
@@ -343,7 +352,7 @@ def find_recipe(out_ref, index, where):
     ref = out_ref
     if ref.startswith("te#") or ("#" in ref and ":" not in ref.split("#")[0]):
         ref = "ic2:" + ref
-    lst = SHAPED.get(ref, []) + SHAPELESS.get(ref, [])
+    lst = SHAPED.get(ref, []) + SHAPELESS.get(ref, []) + MODREC.get(out_ref, [])
     lst = [r for r in lst if not r.get("hidden")] or lst
     if not lst:
         err(where, f"нет рецепта верстака для {out_ref}")
