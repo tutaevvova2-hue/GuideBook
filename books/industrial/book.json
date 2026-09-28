@@ -2,7 +2,7 @@
  "name": "Промышленный справочник",
  "landing_text": "От первой резины до накопителей на миллионы EU.$(br2)Статьи открываются, когда у тебя появляются нужные предметы.",
  "version": 0,
- "subtitle": "Том I",
+ "subtitle": "",
  "show_progress": true,
  "model": "tomes:industrial_book",
  "book_texture": "tomes:textures/gui/industrial_book.png",
