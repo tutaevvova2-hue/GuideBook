@@ -60,6 +60,7 @@ sort: 1
 name: Новые руды
 icon: divinerpg:realmite_ore
 sort: 2
+provides: divinerpg:realmite_ingot, divinerpg:arlemite_ingot, divinerpg:rupee_ingot
 
 == spotlight divinerpg:realmite_ore
 **Реалмитовая руда** — самая частая из новых руд. Жилы до 8 блоков, пять жил на участок 16×16, от дна до высоты 48.

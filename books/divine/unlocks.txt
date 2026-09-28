@@ -1,4 +1,86 @@
 # Группы открытия статей книги «Странник меж мирами».
+# Статья с «unlock: <группа>» появляется, когда в инвентаре окажется любой предмет группы.
+
+@group realmite
+- divinerpg:realmite_ore
+- divinerpg:realmite_ingot
+
+@group deep_ores
+- divinerpg:arlemite_ore
+- divinerpg:arlemite_ingot
+- divinerpg:rupee_ore
+- divinerpg:rupee_ingot
+
+@group shadow
+- divinerpg:shadow_bar
+
+@group bedrock
+- divinerpg:rupee_block
+- divinerpg:bedrock_chunk
+
+@group realmite_block
+- divinerpg:realmite_block
+
+@group slime
+- minecraft:slime_ball
+
+@group jungle
+- divinerpg:jungle_shards
+- divinerpg:jungle_stone
+
+@group terran
+- divinerpg:terran_shards
+- divinerpg:terran_stone
+
+@group corrupted
+- divinerpg:corrupted_shards
+- divinerpg:corrupted_stone
+
+@group frost
+- divinerpg:ice_shards
+- divinerpg:ice_stone
+
+@group cyclops
+- divinerpg:cyclops_eye_shards
+- divinerpg:cyclops_eye
+
+@group sea
+- divinerpg:crab_claw
+- divinerpg:aquatic_pellets
+- divinerpg:shark_fin
+- divinerpg:whale_fin
+- divinerpg:liopleurodon_teeth
+- divinerpg:liopleurodon_skull
+
+@group aquatic
+- divinerpg:pure_aquatic_pellets
+- divinerpg:aquatic_ingot
+
+@group nether_gate
+- minecraft:obsidian
+- minecraft:netherrack
+
+@group nether
+- divinerpg:netherite_ore
+- divinerpg:netherite_ingot
+- divinerpg:bloodgem_ore
+- divinerpg:bloodgem
+- divinerpg:purple_blaze
+- divinerpg:molten_shards
+
+@group hellstone
+- divinerpg:netherite_chunk
+- divinerpg:hellstone_ingot
+
+@group watcher
+- divinerpg:watching_eye
+- divinerpg:call_of_the_watcher
+- divinerpg:bluefire_stone
+
+@group scorchers
+- divinerpg:inferno_sword
+- divinerpg:infernal_flame
+- divinerpg:fury_fire
 
 @group stones
 - divinerpg:jungle_stone
@@ -7,4 +89,7 @@
 - divinerpg:molten_stone
 - divinerpg:ender_stone
 - divinerpg:hellstone_ingot
+
+@group divine
 - divinerpg:divine_shards
+- divinerpg:divine_stone
