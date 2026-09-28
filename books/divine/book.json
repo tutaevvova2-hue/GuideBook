@@ -8,12 +8,14 @@
  "book_texture": "tomes:textures/gui/divine_book.png",
  "creative_tab": "misc",
  "text_color": "1A1A1A",
- "header_color": "5B2A86",
- "nameplate_color": "FFFFFF",
- "link_color": "7A3FB8",
- "link_hover_color": "C08A1E",
- "progress_bar_color": "9C5FD6",
- "progress_bar_background": "D6CCE0",
- "advancement_namespaces": ["tomes"],
+ "header_color": "1B2F66",
+ "nameplate_color": "FFF4E0",
+ "link_color": "C8601A",
+ "link_hover_color": "E8962E",
+ "progress_bar_color": "D9731F",
+ "progress_bar_background": "E6D9BE",
+ "advancement_namespaces": [
+  "tomes"
+ ],
  "show_toasts": true
 }
