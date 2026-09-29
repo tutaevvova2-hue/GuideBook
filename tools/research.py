@@ -111,9 +111,24 @@ def cmd_wiki(book, topic, host, title):
 
 
 def cmd_wikisearch(host, query):
-    q = urllib.parse.urlencode({"action": "query", "list": "search", "srsearch": query, "srlimit": 15, "format": "json"})
-    for r in json.loads(get(f"https://{host}/api.php?{q}"))["query"]["search"]:
-        print(r["title"], "—", re.sub(r"<[^>]+>", "", html.unescape(r["snippet"]))[:120])
+    """Три способа поиска подряд (заголовки, текст, приставка), без повторов; печатает заголовок и ссылку."""
+    seen = []
+    base = {"action": "query", "format": "json", "srlimit": 10, "srnamespace": 0}
+    tries = [dict(base, list="search", srsearch=query, srwhat="title"),
+             dict(base, list="search", srsearch=query, srwhat="text"),
+             {"action": "query", "format": "json", "list": "prefixsearch", "pssearch": query, "pslimit": 10}]
+    for p in tries:
+        try:
+            j = json.loads(get(f"https://{host}/api.php?{urllib.parse.urlencode(p)}"))["query"]
+        except (KeyError, ValueError):
+            continue
+        for r in j.get("search", []) + j.get("prefixsearch", []):
+            if r["title"] not in seen:
+                seen.append(r["title"])
+    if not seen:
+        print(f"Ничего не найдено на {host} по «{query}». Попробуй другое слово или другой хост.")
+    for t in seen[:15]:
+        print(f"{t}  https://{host}/wiki/{urllib.parse.quote(t.replace(' ', '_'))}")
 
 
 def cmd_reddit(book, topic, url):
