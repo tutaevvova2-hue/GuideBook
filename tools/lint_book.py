@@ -100,6 +100,15 @@ def main():
     for fn, (shots, n) in files.items():
         if shots == 0:
             warns.append(f"{fn}: в главе нет ни одного == shot (скриншоты)")
+    for fn in files:
+        num = int(fn[:2]) + 1  # 00_start.txt — глава 1
+        dossier = os.path.join(ROOT, "books", book, "sources", "research", f"ch{num}.md")
+        if not os.path.exists(dossier):
+            warns.append(f"{fn}: нет досье sources/research/ch{num}.md (задание ИССЛЕДОВАНИЕ)")
+        else:
+            urls = set(re.findall(r"https?://[^\s)>\]]+", open(dossier, encoding="utf-8").read()))
+            if len(urls) < 3:
+                warns.append(f"{fn}: в досье ch{num}.md меньше 3 источников ({len(urls)})")
     names = {k: v[0] for k, v in weapons.items()}
     low = alltext.lower()
     missing = [n for k, n in names.items() if k not in alltext and n.lower() not in low]

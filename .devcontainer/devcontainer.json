@@ -5,6 +5,6 @@
     "ghcr.io/devcontainers/features/node:1": {},
     "ghcr.io/devcontainers/features/python:1": {}
   },
-  "postCreateCommand": "npm install -g @google/gemini-cli && python build.py --check",
+  "postCreateCommand": "npm install -g @google/gemini-cli && pip install youtube-transcript-api trafilatura && python build.py --check",
   "customizations": { "vscode": { "settings": { "terminal.integrated.defaultProfile.linux": "bash" } } }
 }
