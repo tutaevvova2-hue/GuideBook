@@ -1221,6 +1221,10 @@
    "ru": "Незеритовый кирпич",
    "stack": "minecraft:netherbrick"
   },
+  "minecraft:netherrack": {
+   "ru": "Адский камень",
+   "stack": "minecraft:netherrack"
+  },
   "minecraft:noteblock": {
    "ru": "Нотный блок",
    "stack": "minecraft:noteblock"
